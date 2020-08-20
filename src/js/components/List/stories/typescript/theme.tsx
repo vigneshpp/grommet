@@ -1,12 +1,18 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import isChromatic from 'storybook-chromatic/isChromatic';
+import isChromatic from 'chromatic/isChromatic';
 
 import { Grommet, Box, List } from 'grommet';
 import { grommet } from 'grommet/themes';
 import { deepMerge } from 'grommet/utils';
 
-import { locations } from '../data';
+export const locations = [
+  'Boise',
+  'Fort Collins',
+  'Los Gatos',
+  'Palo Alto',
+  'San Francisco',
+];
 
 const theme = deepMerge(grommet, {
   list: {

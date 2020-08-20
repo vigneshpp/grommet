@@ -31,8 +31,10 @@ const Chart = React.forwardRef(
       id,
       onClick,
       onHover,
+      opacity: propsOpacity,
       overflow = false,
       pad,
+      point,
       round,
       size: propsSize = defaultSize,
       thickness = 'medium',
@@ -221,8 +223,11 @@ const Chart = React.forwardRef(
         .filter(({ value }) => value[1] !== undefined)
         .map((valueArg, index) => {
           const {
+            color: valueColor,
             label,
             onHover: valueOnHover,
+            opacity: valueOpacity,
+            thickness: valueThickness,
             value,
             ...valueRest
           } = valueArg;
@@ -254,7 +259,24 @@ const Chart = React.forwardRef(
           }
 
           return (
-            <g key={key} fill="none">
+            <g
+              key={key}
+              fill="none"
+              stroke={
+                valueColor ? normalizeColor(valueColor, theme) : undefined
+              }
+              strokeWidth={
+                valueThickness
+                  ? parseMetricToNum(
+                      theme.global.edgeSize[valueThickness] || valueThickness,
+                    )
+                  : undefined
+              }
+              opacity={
+                (valueOpacity && theme.global.opacity[valueOpacity]) ||
+                valueOpacity
+              }
+            >
               <title>{label}</title>
               <path
                 d={d}
@@ -364,8 +386,11 @@ const Chart = React.forwardRef(
         .filter(({ value }) => value[1] !== undefined)
         .map((valueArg, index) => {
           const {
+            color: valueColor,
             label,
             onHover: valueOnHover,
+            opacity: valueOpacity,
+            thickness: valueThickness,
             value,
             ...valueRest
           } = valueArg;
@@ -384,23 +409,51 @@ const Chart = React.forwardRef(
             clickProps = { onClick };
           }
 
+          const width = valueThickness
+            ? parseMetricToNum(
+                theme.global.edgeSize[valueThickness] || valueThickness,
+              )
+            : strokeWidth;
+
           const renderPoint = (valueX, valueY) => {
-            const center = valueY;
             const props = { ...hoverProps, ...clickProps, ...valueRest };
-            if (round) {
-              const [cx, cy] = valueToCoordinate(valueX, center);
-              return <circle cx={cx} cy={cy} r={strokeWidth / 2} {...props} />;
-            }
-            const [x, y] = valueToCoordinate(value[0], center).map(
-              // for rect, offset half strokeWidth to top left corner coord
-              c => c - strokeWidth / 2,
-            );
-            const dim = strokeWidth;
-            return <rect x={x} y={y} width={dim} height={dim} {...props} />;
+            const [cx, cy] = valueToCoordinate(valueX, valueY);
+            const off = width / 2;
+            if (point === 'circle' || (!point && round))
+              return <circle cx={cx} cy={cy} r={off} {...props} />;
+            let d;
+            if (point === 'diamond')
+              d = `M ${cx} ${cy - off} L ${cx + off} ${cy} L ${cx} ${cy +
+                off} L ${cx - off} ${cy} Z`;
+            else if (point === 'star') {
+              const off1 = off / 3;
+              const off2 = off1 * 2;
+              d = `M ${cx} ${cy - off} L ${cx - off2} ${cy + off} L ${cx +
+                off} ${cy - off1} L ${cx - off} ${cy - off1} L ${cx +
+                off2} ${cy + off} Z`;
+            } else if (point === 'triangle')
+              d = `M ${cx} ${cy - off} L ${cx + off} ${cy + off} L ${cx -
+                off} ${cy + off} Z`;
+            else if (point === 'triangleDown')
+              d = `M ${cx - off} ${cy - off} L ${cx + off} ${cy -
+                off} L ${cx} ${cy + off} Z`;
+            // square
+            else
+              d = `M ${cx - off} ${cy - off} L ${cx + off} ${cy - off} L ${cx +
+                off} ${cy + off} L ${cx - off} ${cy + off} Z`;
+            return <path d={d} />;
           };
 
           return (
-            <g key={key} stroke="none">
+            <g
+              key={key}
+              stroke="none"
+              fill={valueColor ? normalizeColor(valueColor, theme) : undefined}
+              opacity={
+                (valueOpacity && theme.global.opacity[valueOpacity]) ||
+                valueOpacity
+              }
+            >
               <title>{label}</title>
               {renderPoint(value[0], value[1])}
               {value[2] !== undefined && renderPoint(value[0], value[2])}
@@ -427,7 +480,11 @@ const Chart = React.forwardRef(
       else if (theme.chart && theme.chart.color) colorName = theme.chart.color;
     }
     const opacity =
-      color && color.opacity ? theme.global.opacity[color.opacity] : undefined;
+      propsOpacity || (color && color.opacity)
+        ? theme.global.opacity[propsOpacity || color.opacity] ||
+          propsOpacity ||
+          color.opacity
+        : undefined;
 
     let stroke;
     if (type !== 'point') {
@@ -457,8 +514,9 @@ const Chart = React.forwardRef(
     let defs;
     let gradientRect;
     if (useGradient && size[1]) {
-      const gradientId = `${id}-gradient`;
-      const maskId = `${id}-mask`;
+      const uniqueGradientId = color.map(element => element.color).join('-');
+      const gradientId = `${uniqueGradientId}-${id}-gradient`;
+      const maskId = `${uniqueGradientId}-${id}-mask`;
       defs = (
         <defs>
           <linearGradient id={gradientId} x1={0} y1={0} x2={0} y2={1}>
@@ -500,6 +558,7 @@ const Chart = React.forwardRef(
         preserveAspectRatio="none"
         width={size === 'full' ? '100%' : size[0]}
         height={size === 'full' ? '100%' : size[1]}
+        typeProp={type} // prevent adding to DOM
         {...rest}
       >
         {defs}

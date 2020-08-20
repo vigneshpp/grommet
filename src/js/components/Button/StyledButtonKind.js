@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components';
 
 import {
+  activeStyle,
   backgroundStyle,
+  disabledStyle,
   focusStyle,
   genericStyles,
   normalizeColor,
@@ -212,12 +214,18 @@ const fillStyle = fillContainer => {
   return undefined;
 };
 
+// The > svg rule is to ensure Buttons with just an icon don't add additional
+// vertical height internally.
 const plainStyle = () => css`
   outline: none;
   border: none;
   padding: 0;
   text-align: inherit;
   color: inherit;
+
+  > svg {
+    vertical-align: bottom;
+  }
 `;
 
 const StyledButtonKind = styled.button`
@@ -233,17 +241,26 @@ const StyledButtonKind = styled.button`
 
   ${genericStyles}
   ${props => props.plain && plainStyle(props)}
+  // set baseline activeStyle for all buttons including plain buttons
+  // buttons with kind will have active styling overridden by kindStyle
+  // if they have specific state styles
+  ${props => !props.disabled && props.active && activeStyle}
   ${props => !props.plain && basicStyle(props)}
   ${props => !props.plain && kindStyle(props)}
   ${props =>
     !props.plain &&
     props.align &&
     `
-  text-align: ${props.align};
-  `}
-  ${props => props.hoverIndicator && hoverIndicatorStyle(props)}
+    text-align: ${props.align};
+    `}
+    ${props => props.hoverIndicator && hoverIndicatorStyle(props)}
   ${props =>
-    props.focus && (!props.plain || props.focusIndicator) && focusStyle()}
+    props.disabled && disabledStyle(props.theme.button.disabled.opacity)}
+
+  &:focus {
+    ${props => (!props.plain || props.focusIndicator) && focusStyle()}
+  }
+  
   ${props =>
     !props.plain &&
     props.theme.button.transition &&

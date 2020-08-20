@@ -25,6 +25,18 @@ export const doc = Button => {
 
   DocumentedButton.propTypes = {
     ...genericProps,
+    children: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.object,
+      PropTypes.node,
+    ]).description(
+      `Function that can be called to render the visual representation.
+      Button can take in Children as a function, node, or object. 
+      For example hover can be passed as an object that would 
+      then return a react element.
+      \`children={({ hover }) => <Box...>{...}</Box>}\`
+      `,
+    ),
     active: PropTypes.bool
       .description('Whether the button is active.')
       .defaultValue(false),
@@ -110,7 +122,10 @@ with plain Buttons.`,
       padding, border radius, text size and line height. 
       'size' will not impact any icon related sizing.`,
     ),
-    target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']).description(
+    target: PropTypes.oneOfType([
+      PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+      PropTypes.string,
+    ]).description(
       `Specifies where to display the URL defined in the href property.`,
     ),
     type: PropTypes.oneOf(['button', 'reset', 'submit'])
@@ -259,6 +274,10 @@ export const themeDoc = {
     description: `The color of the label for default buttons.`,
     type: 'string | { dark: string, light: string }',
   },
+  'button.default.font.weight': {
+    description: `The weight of the text label for default buttons.`,
+    type: 'string | number',
+  },
   'button.default.extend': {
     description: 'Any additional style for a default button.',
     type: 'string | (props) => {}',
@@ -379,6 +398,10 @@ export const themeDoc = {
     description: `The color of the label for primary buttons.`,
     type: 'string | { dark: string, light: string }',
   },
+  'button.primary.font.weight': {
+    description: `The weight of the text label for primary buttons.`,
+    type: 'string | number',
+  },
   'button.primary.padding.horizontal': {
     description: 'The horizontal padding for a primary button.',
     type: 'string',
@@ -412,6 +435,10 @@ export const themeDoc = {
   'button.secondary.color': {
     description: `The color of the label for secondary buttons.`,
     type: 'string | { dark: string, light: string }',
+  },
+  'button.secondary.font.weight': {
+    description: `The weight of the text label for secondary buttons.`,
+    type: 'string | number',
   },
   'button.secondary.padding.horizontal': {
     description: 'The horizontal padding for a secondary button.',

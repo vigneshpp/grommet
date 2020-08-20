@@ -415,6 +415,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       //   background: undefined,
       //   border: undefined,
       //   color: undefined,
+      //   font: {
+      //     weight: undefined,
+      //   },
       //   padding: {
       //     vertical: undefined,
       //     horizontal: undefined,
@@ -422,6 +425,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       //   extend: undefined,
       // },
       // primary: {
+      //   font: {
+      //     weight: undefined,
+      //   },
       //   background: undefined,
       //   border: undefined,
       //   color: undefined,
@@ -432,6 +438,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       //   extend: undefined,
       // },
       // secondary: {
+      //   font: {
+      //     weight: undefined,
+      //   },
       //   background: undefined,
       //   border: undefined,
       //   color: undefined,
@@ -518,6 +527,17 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       heading: { level: '4' }, // level ranges from 1-6
+    },
+    card: {
+      container: {
+        round: 'small',
+        elevation: 'small',
+      },
+      header: {},
+      body: {},
+      footer: {
+        background: 'background-contrast',
+      },
     },
     carousel: {
       icons: {
@@ -639,7 +659,15 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       minSpeed: 200,
       baseline: 500,
     },
+    dateInput: {
+      // icon: {
+      //   size: undefined,
+      // },
+    },
     dataTable: {
+      // body: {
+      //   extend: undefined,
+      // },
       groupHeader: {
         background: {
           dark: 'dark-2',
@@ -691,6 +719,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         side: 'bottom',
       },
       content: {
+        // margin: undefined,
         pad: 'small',
       },
       disabled: {
@@ -840,6 +869,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // extend: undefined,
       icons: {
         down: FormDown,
+        // up: undefined,
         // color: { dark: undefined, light: undefined },
       },
     },
@@ -865,11 +895,17 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       check: {
         radius: '100%',
+        // background: {
+        //  color: undefined,
+        // },
         // color: { dark: undefined, light: undefined },
         // extend: undefined,
       },
       // color: undefined,
       hover: {
+        // background: {
+        //   color: undefined,
+        // },
         border: {
           color: {
             dark: 'white',
@@ -886,6 +922,12 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       gap: 'small',
       size: `${baseSpacing}px`,
+      font: {
+        // weight: undefined,
+      },
+    },
+    radioButtonGroup: {
+      // container: {}, // any box props
     },
     rangeInput: {
       // extend: undefined
@@ -945,6 +987,18 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // searchInput: undefined,
       step: 20,
     },
+    skipLinks: {
+      position: 'top',
+      container: {
+        elevation: 'large',
+        round: 'small',
+        pad: 'medium',
+      },
+      label: {
+        margin: { bottom: 'medium' },
+        size: 'medium',
+      },
+    },
     tab: {
       active: {
         color: 'text',
@@ -964,6 +1018,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             light: 'black',
           },
         },
+        disabled: {
+          // color: undefined,
+        },
         hover: {
           color: {
             dark: 'white',
@@ -973,6 +1030,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       color: 'control',
+      // disabled: {
+      //   color: undefined,
+      // },
       // extend: undefined,
       hover: {
         // background: undefined,

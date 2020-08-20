@@ -38,12 +38,11 @@ import { FormNext } from 'grommet-icons';
 import { grommet } from 'grommet/themes';
 import { generate } from 'grommet/themes/base';
 import { deepMerge } from 'grommet/utils';
-// import { hpe } from 'grommet-theme-hpe';
+import { hpe } from 'grommet-theme-hpe';
 import { aruba } from 'grommet-theme-aruba';
 import { hp } from 'grommet-theme-hp';
 import { dxc } from 'grommet-theme-dxc';
 import { v1 } from 'grommet-theme-v1';
-import { hpe } from './theme';
 
 const Node = ({ id, ...rest }) => (
   <Box
@@ -298,6 +297,7 @@ const Components = () => {
     </Box>,
     <Box key="video" alignSelf="start">
       <Video>
+        <source src="small.mp4" type="video/mp4" />
         <source
           src="http://techslides.com/demos/sample-videos/small.webm"
           type="video/webm"
@@ -305,10 +305,6 @@ const Components = () => {
         <source
           src="http://techslides.com/demos/sample-videos/small.ogv"
           type="video/ogg"
-        />
-        <source
-          src="http://techslides.com/demos/sample-videos/small.mp4"
-          type="video/mp4"
         />
         <source
           src="http://techslides.com/demos/sample-videos/small.3gp"

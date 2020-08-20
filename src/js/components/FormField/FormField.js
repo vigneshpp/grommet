@@ -17,7 +17,13 @@ import { Text } from '../Text';
 import { TextInput } from '../TextInput';
 import { FormContext } from '../Form/FormContext';
 
-const grommetInputNames = ['TextInput', 'Select', 'MaskedInput', 'TextArea'];
+const grommetInputNames = [
+  'TextInput',
+  'Select',
+  'MaskedInput',
+  'TextArea',
+  'DateInput',
+];
 const grommetInputPadNames = [
   'CheckBox',
   'CheckBoxGroup',
@@ -84,6 +90,7 @@ const FormField = forwardRef(
       children,
       className,
       component,
+      contentProps,
       disabled, // pass through in renderInput()
       error: errorProp,
       help,
@@ -173,16 +180,27 @@ const FormField = forwardRef(
       );
     }
 
-    const contentProps =
-      pad || wantContentPad ? { ...formFieldTheme.content } : {};
-    if (themeBorder.position === 'inner') {
+    const themeContentProps = { ...formFieldTheme.content };
+
+    if (!pad && !wantContentPad) {
+      themeContentProps.pad = undefined;
+    }
+
+    if (themeBorder && themeBorder.position === 'inner') {
       if (error && formFieldTheme.error) {
-        contentProps.background = formFieldTheme.error.background;
+        themeContentProps.background = formFieldTheme.error.background;
       } else if (disabled && formFieldTheme.disabled) {
-        contentProps.background = formFieldTheme.disabled.background;
+        themeContentProps.background = formFieldTheme.disabled.background;
       }
     }
-    contents = <Box {...contentProps}>{contents}</Box>;
+
+    if (!themeBorder) {
+      contents = (
+        <Box {...themeContentProps} {...contentProps}>
+          {contents}
+        </Box>
+      );
+    }
 
     let borderColor;
 
@@ -232,7 +250,11 @@ const FormField = forwardRef(
             }
           : {};
       contents = (
-        <FormFieldContentBox overflow="hidden" {...innerProps}>
+        <FormFieldContentBox
+          {...themeContentProps}
+          {...innerProps}
+          {...contentProps}
+        >
           {contents}
         </FormFieldContentBox>
       );
@@ -273,7 +295,8 @@ const FormField = forwardRef(
     }
 
     let outerBackground;
-    if (themeBorder.position === 'outer') {
+
+    if (themeBorder && themeBorder.position === 'outer') {
       if (error && formFieldTheme.error && formFieldTheme.error.background) {
         outerBackground = formFieldTheme.error.background;
       } else if (

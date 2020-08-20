@@ -1,7 +1,7 @@
 ## DataTable
 A data driven table.
 
-[![](https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png)](https://storybook.grommet.io/?selectedKind=DataTable&full=0&addons=0&stories=1&panelRight=0) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=datatable&module=%2Fsrc%2FDataTable.js)
+[![](https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png)](https://storybook.grommet.io/?selectedKind=DataTable&full=0&addons=0&stories=1&panelRight=0) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=/datatable&module=%2Fsrc%2FDataTable.js)
 ## Usage
 
 ```javascript
@@ -461,35 +461,40 @@ string
     small
     medium
     large
-    xlarge,
+    xlarge
+    string,
   vertical: 
     xxsmall
     xsmall
     small
     medium
     large
-    xlarge,
+    xlarge
+    string,
   top: 
     xxsmall
     xsmall
     small
     medium
     large
-    xlarge,
+    xlarge
+    string,
   bottom: 
     xxsmall
     xsmall
     small
     medium
     large
-    xlarge,
+    xlarge
+    string,
   left: 
     xxsmall
     xsmall
     small
     medium
     large
-    xlarge,
+    xlarge
+    string,
   right: 
     xxsmall
     xsmall
@@ -497,6 +502,7 @@ string
     medium
     large
     xlarge
+    string
 }
 {
   header: custom,
@@ -609,6 +615,16 @@ Defaults to
 
 ```
 { dark: 'white', light: 'black' }
+```
+
+**dataTable.body.extend**
+
+Any additional style for an DataTable Body Expects `string | (props) => {}`.
+
+Defaults to
+
+```
+undefined
 ```
 
 **dataTable.groupHeader.background**
