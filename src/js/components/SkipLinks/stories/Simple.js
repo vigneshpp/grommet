@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/tabindex-no-positive */
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import {
   grommet,
@@ -76,7 +75,7 @@ const Info = ({ label }) => (
   </Paragraph>
 );
 
-export const Example = () => (
+export const Simple = () => (
   <Grommet theme={grommet}>
     <SkipLinks>
       <SkipLink id="main" label="Main Content" />
@@ -124,4 +123,6 @@ export const Example = () => (
   </Grommet>
 );
 
-storiesOf('SkipLinks', module).add('Simple', () => <Example />);
+export default {
+  title: 'Utilities/SkipLinks/Simple',
+};

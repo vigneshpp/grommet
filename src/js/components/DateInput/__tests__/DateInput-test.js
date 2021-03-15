@@ -36,6 +36,7 @@ describe('DateInput', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('format', () => {
@@ -46,6 +47,7 @@ describe('DateInput', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('inline', () => {
@@ -72,6 +74,7 @@ describe('DateInput', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('format disabled', () => {
@@ -88,6 +91,7 @@ describe('DateInput', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('range', () => {
@@ -98,6 +102,7 @@ describe('DateInput', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('range inline', () => {
@@ -108,6 +113,7 @@ describe('DateInput', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('range format', () => {
@@ -123,6 +129,7 @@ describe('DateInput', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('range format inline', () => {
@@ -139,6 +146,7 @@ describe('DateInput', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('focus', () => {
@@ -274,12 +282,45 @@ describe('DateInput', () => {
     );
     expect(container.firstChild).toMatchSnapshot();
 
+    // new calendar logic adjust start date by default
     fireEvent.click(getByText('10'));
     expect(onChange).toHaveBeenCalled();
     expect(onChange).toHaveReturnedWith([
-      '2020-07-02T00:00:00-08:00',
+      '2020-07-10T08:00:00.000Z',
       '2020-07-10T08:00:00.000Z',
     ]);
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  test(`dropProps should pass props to Drop 
+  when not inline`, () => {
+    const { container } = render(
+      <Grommet>
+        <DateInput
+          dropProps={{
+            plain: true,
+          }}
+          format="mm/dd/yyyy"
+        />
+      </Grommet>,
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  test(`buttonProps should pass props to Button 
+  when not inline and no format`, () => {
+    const component = renderer.create(
+      <Grommet>
+        <DateInput
+          buttonProps={{
+            open: true,
+            disabled: true,
+          }}
+        />
+      </Grommet>,
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 });

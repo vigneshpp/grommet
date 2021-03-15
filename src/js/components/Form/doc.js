@@ -1,10 +1,10 @@
 import { describe, PropTypes } from 'react-desc';
 
-import { getAvailableAtBadge } from '../../utils';
+import { getAvailableAtBadge } from '../../utils/mixins';
 
 export const doc = Form => {
   const DocumentedForm = describe(Form)
-    .availableAt(getAvailableAtBadge('Form'))
+    .availableAt(getAvailableAtBadge('Form', 'Input'))
     .description('A form that manages state for its fields.')
     .usage(
       `import { Form } from 'grommet';
@@ -48,10 +48,10 @@ export const doc = Form => {
     onValidate: PropTypes.func.description(
       `Function that will be called when the form is validated. The
       single argument is an event containing the latest error object
-      via \`validationResults.errors\` and info object via 
-      \`validationResults.infos\`.`,
+      via \`validationResults.errors\`, info object via 
+      \`validationResults.infos\` and form's validity via \`valid\`.`,
     ),
-    validate: PropTypes.oneOf(['blur', 'submit'])
+    validate: PropTypes.oneOf(['blur', 'submit', 'change'])
       .description('When to perform validation')
       .defaultValue('submit'),
     value: PropTypes.shape({})

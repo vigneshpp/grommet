@@ -50,7 +50,11 @@ export { isObject, deepFreeze, deepMerge, removeUndefined };
  * type SomeComponentProps = PropsOf<typeof SomeComponent>;
  * ```
  */
-export type PropsOf<TComponent> = TComponent extends React.ComponentType<infer P> ? P : never;
+export type PropsOf<TComponent> = TComponent extends React.ComponentType<
+  infer P
+>
+  ? P
+  : never;
 
 // Extracting types for common properties among components
 type BoxSideType =
@@ -141,17 +145,27 @@ export type BorderType =
   | BoxSideType
   | {
       color?: ColorType;
+      error?: { color?: ColorType };
+      position?: string;
       side?: BoxSideType;
       size?: BoxSizeType;
       style?: BoxStyleType;
     }
   | {
       color?: ColorType;
+      error?: { color?: ColorType };
+      position?: string;
       side?: BoxSideType;
       size?: BoxSizeType;
       style?: BoxStyleType;
     }[];
 export type ColorType = string | { dark?: string; light?: string } | undefined;
+export type DirectionType =
+  | 'row'
+  | 'column'
+  | 'row-responsive'
+  | 'row-reverse'
+  | 'column-reverse';
 export type ElevationType =
   | 'none'
   | 'xsmall'

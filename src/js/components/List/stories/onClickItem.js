@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import { Grommet, Box, List } from 'grommet';
 import { grommet } from 'grommet/themes';
@@ -24,7 +23,7 @@ for (let i = 0; i < 40; i += 1) {
   });
 }
 
-const OnClickItemList = () => {
+export const OnClickItemList = () => {
   const [clicked, setClicked] = React.useState();
   return (
     <Grommet theme={grommet}>
@@ -40,4 +39,14 @@ const OnClickItemList = () => {
   );
 };
 
-storiesOf('List', module).add('onClickItem', () => <OnClickItemList />);
+OnClickItemList.storyName = 'onClickItem';
+
+OnClickItemList.parameters = {
+  // chromatic disabled because snapshot is covered by jest testing
+  // and snapshot is the same as selection
+  chromatic: { disable: true },
+};
+
+export default {
+  title: 'Visualizations/List/onClickItem',
+};

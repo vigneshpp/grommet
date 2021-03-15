@@ -4,7 +4,9 @@ import {
   AlignSelfType,
   GridAreaType,
   MarginType,
+  PadType,
 } from '../../utils';
+import { PaginationType } from '../Pagination';
 
 type SizeType =
   | 'xxsmall'
@@ -22,25 +24,6 @@ type SideType =
   | 'horizontal'
   | 'vertical'
   | 'all';
-type PadSizeType =
-  | 'none'
-  | 'xxsmall'
-  | 'xsmall'
-  | 'small'
-  | 'medium'
-  | 'large'
-  | 'xlarge'
-  | string;
-type PadType =
-  | PadSizeType
-  | {
-      bottom?: PadSizeType;
-      horizontal?: PadSizeType;
-      left?: PadSizeType;
-      right?: PadSizeType;
-      top?: PadSizeType;
-      vertical?: PadSizeType;
-    };
 type BorderType =
   | boolean
   | SideType
@@ -70,13 +53,18 @@ export interface ListProps {
     | ((event: React.MouseEvent) => void)
     | ((event: { item?: {}; index?: number }) => void);
   pad?: PadType;
-  primaryKey?: string | ((...args: any[]) => any);
-  secondaryKey?: string | ((...args: any[]) => any);
+  paginate?: boolean | PaginationType;
+  primaryKey?: string | ((item: any) => React.ReactElement);
+  secondaryKey?: string | ((item: any) => React.ReactElement);
+  show?: number | { page?: number };
   step?: number;
   action?: (item: any, index: number) => void;
 }
 
-declare const List: React.ComponentClass<ListProps &
-  JSX.IntrinsicElements['ul']>;
+type ulProps = JSX.IntrinsicElements['ul'];
+
+export interface ListExtendedProps extends ListProps, ulProps {}
+
+declare const List: React.FC<ListExtendedProps>;
 
 export { List };

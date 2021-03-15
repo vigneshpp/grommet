@@ -1,10 +1,11 @@
 import { describe, PropTypes } from 'react-desc';
 
-import { getAvailableAtBadge, marginProp } from '../../utils';
+import { marginProp } from '../../utils/prop-types';
+import { getAvailableAtBadge } from '../../utils/mixins';
 
 export const doc = FormField => {
   const DocumentedFormField = describe(FormField)
-    .availableAt(getAvailableAtBadge('FormField'))
+    .availableAt(getAvailableAtBadge('FormField', 'Input'))
     .description(
       `A single field in a form. FormField wraps an input component with
       a label, help, and/or error messaging. It typically contains an input
@@ -163,6 +164,59 @@ export const themeDoc = {
     type: "string | {'dark': string, 'light': string}",
     defaultValue: 'status-critical',
   },
+  'formField.error.container': {
+    description: `Any valid Box props for the container surrounding the error 
+    message and icon.`,
+    type: 'object',
+    defaultValue: undefined,
+  },
+  'formField.error.icon': {
+    description: 'An icon placed in a row with the error message.',
+    type: 'React.Element',
+    defaultValue: undefined,
+  },
+  'formField.error.size': {
+    description: `The size of the error message to be displayed.
+     The default size is medium.`,
+    type: 'string',
+    defaultValue: 'medium',
+  },
+  'formField.error.size.xsmall': {
+    description: `The size of a 'xsmall' error message.`,
+    type: 'string',
+    defaultValue: '12px',
+  },
+  'formField.error.size.small': {
+    description: `The size of a 'small' error message.`,
+    type: 'string',
+    defaultValue: '14px',
+  },
+  'formField.error.size.medium': {
+    description: `The size of a 'medium' error message.`,
+    type: 'string',
+    defaultValue: '18px',
+  },
+  'formField.error.size.large': {
+    description: `The size of a 'large' error message.`,
+    type: 'string',
+    defaultValue: '22px',
+  },
+  'formField.error.size.xlarge': {
+    description: `The size of a 'xlarge' error message.`,
+    type: 'string',
+    defaultValue: '26px',
+  },
+  'formField.info.container': {
+    description: `Any valid Box props for the container surrounding the info 
+    message and icon.`,
+    type: 'object',
+    defaultValue: undefined,
+  },
+  'formField.info.icon': {
+    description: 'An icon placed in a row with the info message.',
+    type: 'React.Element',
+    defaultValue: undefined,
+  },
   'formField.error.margin': {
     description: 'The margin used for the FormField error.',
     type: 'string | object',
@@ -213,6 +267,15 @@ export const themeDoc = {
     description: 'The margin for the FormField label.',
     type: 'string | object',
     defaultValue: "{ vertical: 'xsmall', horizontal: 'small' }",
+  },
+  'formField.label.requiredIndicator': {
+    description: `Whether an asterisk (*) indicating that an input is required 
+    should be displayed adjacent to the FormField's label. If providing a 
+    custom element, for accessibility it is recommended that you include 
+    an a11yTitle of "required" to assist screen readers. If using "true", the 
+    a11yTitle is automatically applied.`,
+    type: 'boolean | element | string',
+    defaultValue: 'undefined',
   },
   'formField.margin': {
     description: 'The margin of FormField.',

@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
-import isChromatic from 'chromatic/isChromatic';
 
 import {
   Grommet,
@@ -11,13 +9,19 @@ import {
 } from 'grommet';
 import { grommet } from 'grommet/themes';
 
-import { allItems } from '../Basics';
+const allItems = Array(2000)
+  .fill(0)
+  .map((_, i) => `item ${i + 1}`);
 
+// 'interface' declarations can only be used in TypeScript files.
+// Remove ': 'interface IProps' if you are not using Typescript.
 export interface IProps {
   props?: InfiniteScrollProps;
   step?: InfiniteScrollProps['step'];
 }
 
+// Type annotations can only be used in TypeScript files.
+// Remove ': React.FC<IProps>' if you are not using Typescript.
 const OnMoreInfiniteScroll: React.FC<IProps> = ({ props }) => {
   const [items, setItems] = useState(allItems.slice(0, 50));
 
@@ -47,8 +51,10 @@ const OnMoreInfiniteScroll: React.FC<IProps> = ({ props }) => {
   );
 };
 
-if (!isChromatic()) {
-  storiesOf('TypeScript/InfiniteScroll', module)
-    .add('onMore', () => <OnMoreInfiniteScroll />)
-    .add('onMore step', () => <OnMoreInfiniteScroll step={75} />);
-}
+export const onMore = () => <OnMoreInfiniteScroll />;
+
+onMore.storyName = 'onMore';
+
+export default {
+  title: 'Utilities/InfiniteScroll/onMore',
+};

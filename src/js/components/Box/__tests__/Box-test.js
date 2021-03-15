@@ -265,6 +265,10 @@ describe('Box', () => {
             <Box />
           </Box>
         ))}
+        <Box as="span" gap="small">
+          <span>first</span>
+          <span>second</span>
+        </Box>
       </Grommet>,
     );
     const tree = component.toJSON();
@@ -531,6 +535,16 @@ describe('Box', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  test('width object', () => {
+    const component = renderer.create(
+      <Grommet>
+        <Box width={{ width: '100px' }} />
+      </Grommet>,
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   test('height', () => {
     const component = renderer.create(
       <Grommet>
@@ -558,5 +572,29 @@ describe('Box', () => {
     fireEvent.click(getByText('test box'));
 
     expect(onClick).toBeCalled();
+  });
+
+  test('hoverIndicator', () => {
+    const component = renderer.create(
+      <Grommet>
+        <Box>
+          <Box onClick={() => {}} hoverIndicator />
+          <Box onClick={() => {}} hoverIndicator="background-contrast" />\
+          <Box
+            onClick={() => {}}
+            hoverIndicator={{ color: 'background-contrast' }}
+          />
+          <Box
+            onClick={() => {}}
+            hoverIndicator={{
+              background: { color: 'background-contrast' },
+              elevation: 'medium',
+            }}
+          />
+        </Box>
+      </Grommet>,
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });

@@ -3,10 +3,11 @@ import { describe, PropTypes } from 'react-desc';
 import {
   colorPropType,
   genericProps,
-  getAvailableAtBadge,
   padPropType,
+  patternPropType,
   pointPropType,
-} from '../../utils';
+} from '../../utils/prop-types';
+import { getAvailableAtBadge } from '../../utils/mixins';
 
 const thicknessType = PropTypes.oneOfType([
   PropTypes.oneOf([
@@ -24,7 +25,7 @@ const thicknessType = PropTypes.oneOfType([
 
 export const doc = Chart => {
   const DocumentedChart = describe(Chart)
-    .availableAt(getAvailableAtBadge('Chart'))
+    .availableAt(getAvailableAtBadge('Chart', 'Visualizations'))
     .description('A graphical chart.')
     .usage("import { Chart } from 'grommet';\n<Chart />");
   // We don't include svg due to a collision on the values property
@@ -69,7 +70,7 @@ export const doc = Chart => {
       .defaultValue('accent-1'),
     id: PropTypes.string.description(`A unique identifier for the Chart. This
       is required if more than one Chart is shown and they use color
-      gradients.`),
+      gradients or if a pattern is specified.`),
     dash: PropTypes.bool
       .description(`Whether to use dashed lines for line or bar charts.`)
       .defaultValue(false),
@@ -110,6 +111,9 @@ export const doc = Chart => {
       `Spacing around the outer edge of the drawing coordinate area.
       Related to 'overflow', this allows control over how much space
       is available for bars and points to overflow into.`,
+    ),
+    pattern: patternPropType.description(
+      `When using an 'area' type, what pattern to fill the area with.`,
     ),
     point: pointPropType.description(
       `When using a 'point' type, what shape the points should use.

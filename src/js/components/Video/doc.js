@@ -1,11 +1,12 @@
 import { describe, PropTypes } from 'react-desc';
 
-import { genericProps, getAvailableAtBadge } from '../../utils';
+import { genericProps } from '../../utils/prop-types';
+import { getAvailableAtBadge } from '../../utils/mixins';
 import { themeDocUtils } from '../../utils/themeDocUtils';
 
 export const doc = Video => {
   const DocumentedVideo = describe(Video)
-    .availableAt(getAvailableAtBadge('Video'))
+    .availableAt(getAvailableAtBadge('Video', 'Media'))
     .description('A video player.')
     .usage(
       `import { Video } from 'grommet';

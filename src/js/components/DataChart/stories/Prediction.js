@@ -1,16 +1,16 @@
 /* eslint-disable max-len */
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import styled, { keyframes } from 'styled-components';
 
 import { Box, DataChart, Grommet, Stack } from 'grommet';
 import { grommet } from 'grommet/themes';
 
-export const keyFrameExampleOne = keyframes`
+const keyFrameExampleOne = keyframes`
 0% {
   width: 200px;
   background-color: #FFFFFF;
-}  
+}
+
 100% {
     width: 0px;
     background-color: #FFFFFF;
@@ -41,7 +41,7 @@ for (let i = 0; i < 13; i += 1) {
   });
 }
 
-const Example = () => (
+export const Prediction = () => (
   <Grommet theme={grommet}>
     <Box align="center" justify="start" pad="large">
       <Stack anchor="top-right" interactiveChild="first">
@@ -113,8 +113,14 @@ const Example = () => (
               thickness: 'small',
             },
           ]}
-          axis={{ x: 'date', y: { property: 'amount', granularity: 'medium' } }}
-          guide={{ y: { granularity: 'fine' }, x: { granularity: 'fine' } }}
+          axis={{
+            x: 'date',
+            y: { property: 'amount', granularity: 'medium' },
+          }}
+          guide={{
+            y: { granularity: 'fine' },
+            x: { granularity: 'fine' },
+          }}
           gap="medium"
           pad="small"
           legend
@@ -133,4 +139,6 @@ const Example = () => (
   </Grommet>
 );
 
-storiesOf('DataChart', module).add('Prediction', () => <Example />);
+export default {
+  title: 'Visualizations/DataChart/Prediction',
+};

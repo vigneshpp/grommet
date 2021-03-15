@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import { Box, DataChart, Grommet, Text } from 'grommet';
 import { grommet } from 'grommet/themes';
@@ -13,7 +12,7 @@ for (let i = 0; i < 13; i += 1) {
   });
 }
 
-const Example = () => (
+export const MultipleTypes = () => (
   <Grommet theme={grommet}>
     <Box align="center" justify="start" pad="large">
       <DataChart
@@ -65,4 +64,8 @@ const Example = () => (
   </Grommet>
 );
 
-storiesOf('DataChart', module).add('Multiple types', () => <Example />);
+MultipleTypes.storyName = 'Multiple types';
+
+export default {
+  title: 'Visualizations/DataChart/Multiple types',
+};

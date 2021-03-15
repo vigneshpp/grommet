@@ -20,7 +20,7 @@ export interface ChartProps {
   color?:
     | ColorType
     | { color: ColorType; value: number | number[] }[]
-    // deprecated 
+    // deprecated
     | {
         color?: ColorType;
         opacity?: 'weak' | 'medium' | 'strong' | boolean | number;
@@ -32,6 +32,13 @@ export interface ChartProps {
   opacity?: 'weak' | 'medium' | 'strong' | boolean | number;
   overflow?: boolean;
   pad?: EdgeSizeType | { horizontal?: EdgeSizeType; vertical?: EdgeSizeType };
+  pattern?:
+    | 'squares'
+    | 'circles'
+    | 'stripesHorizontal'
+    | 'stripesVertical'
+    | 'stripesDiagonalDown'
+    | 'stripesDiagonalUp';
   point?:
     | 'circle'
     | 'diamond'

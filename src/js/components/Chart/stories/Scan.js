@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from 'react';
-import { storiesOf } from '@storybook/react';
 
 import { Grommet, Box, Chart, Keyboard, Stack, Text } from 'grommet';
 import { grommet } from 'grommet/themes';
@@ -122,8 +121,12 @@ const ScanChart = props => {
   );
 };
 
-storiesOf('Chart', module).add(
-  'Scan',
-  () => <ScanChart data={generateData(30, 100)} max={100} />,
-  { chromatic: { disable: true } },
-);
+export const Scan = () => <ScanChart data={generateData(30, 100)} max={100} />;
+
+Scan.parameters = {
+  chromatic: { disable: true },
+};
+
+export default {
+  title: 'Visualizations/Chart/Scan',
+};

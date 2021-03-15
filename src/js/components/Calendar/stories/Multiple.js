@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
 
 import { Box, Calendar, Grommet } from 'grommet';
 import { grommet } from 'grommet/themes';
 
-const Example = () => {
+export const Multiple = () => {
   const [dates, setDates] = useState([]);
 
   return (
@@ -23,11 +22,13 @@ const Example = () => {
             setDates(nextDates);
             console.log('Select', date, nextDates);
           }}
-          bounds={['2018-09-08', '2020-12-13']}
+          bounds={['2020-09-08', '2025-12-13']}
         />
       </Box>
     </Grommet>
   );
 };
 
-storiesOf('Calendar', module).add('Multiple', () => <Example />);
+export default {
+  title: 'Visualizations/Calendar/Multiple',
+};

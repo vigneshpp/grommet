@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import { Bluetooth as Memory, Storage, Trigger } from 'grommet-icons';
 import {
@@ -104,7 +103,7 @@ const Identifier = ({ children, title, subTitle, size, ...rest }) => (
   </Box>
 );
 
-export const Example = () => (
+export const Clickable = () => (
   <Grommet theme={theme} full>
     <Box pad="large" background="dark-1" height="100%">
       <Grid gap="medium" columns={{ count: 'fit', size: 'small' }}>
@@ -136,4 +135,6 @@ export const Example = () => (
   </Grommet>
 );
 
-storiesOf('Card', module).add('Clickable', () => <Example />);
+export default {
+  title: 'Layout/Card/Clickable',
+};

@@ -7,7 +7,7 @@ Object {
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Accordion&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Controls-Accordion&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -192,7 +192,7 @@ node",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Anchor&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Controls-Anchor&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -308,6 +308,12 @@ string",
         "name": "margin",
       },
       Object {
+        "description": "The DOM tag or react component to use for the element.",
+        "format": "string
+function",
+        "name": "as",
+      },
+      Object {
         "description": "Color when hovering over places while selecting.",
         "format": "string
 {
@@ -364,10 +370,11 @@ string",
         "name": "size",
       },
       Object {
-        "description": "The DOM tag or react component to use for the element.",
-        "format": "string
-function",
-        "name": "as",
+        "description": "Sets font-weight property for anchor.",
+        "format": "normal
+bold
+number",
+        "name": "weight",
       },
     ],
     "usage": "import { Anchor } from 'grommet';
@@ -379,7 +386,7 @@ function",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Box&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Layout-Box&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -789,7 +796,7 @@ boolean",
         "description": "The amount of spacing between child elements. This
         should not be used in conjunction with 'wrap' as the gap elements
         will not wrap gracefully. If a child is a Fragment,
-        Box will not add a gap between the choldren of the Fragment.",
+        Box will not add a gap between the children of the Fragment.",
         "format": "none
 xxsmall
 xsmall
@@ -841,13 +848,18 @@ with plain Buttons.",
         "format": "boolean
 string
 background
+string
 {
-  color: string,
+  color: 
+    string
+    {
+      dark: string,
+      light: string
+    },
   dark: 
     boolean
     string,
   image: string,
-  light: string,
   position: string,
   opacity: 
     string
@@ -863,6 +875,48 @@ background
   size: 
     cover
     contain
+    string,
+  light: string
+}
+{
+  background: 
+    string
+    {
+      color: 
+        string
+        {
+          dark: string,
+          light: string
+        },
+      dark: 
+        boolean
+        string,
+      image: string,
+      position: string,
+      opacity: 
+        string
+        boolean
+        number
+        weak
+        medium
+        strong,
+      repeat: 
+        no-repeat
+        repeat
+        string,
+      size: 
+        cover
+        contain
+        string,
+      light: string
+    },
+  elevation: 
+    none
+    xsmall
+    small
+    medium
+    large
+    xlarge
     string
 }",
         "name": "hoverIndicator",
@@ -994,7 +1048,7 @@ string",
         "name": "responsive",
       },
       Object {
-        "defaultValue": false,
+        "defaultValue": undefined,
         "description": "How much to round the corners.",
         "format": "boolean
 xsmall
@@ -1049,6 +1103,15 @@ xlarge
 xxlarge
 string
 {
+  width: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    xxlarge
+    string,
   min: 
     xxsmall
     xsmall
@@ -1086,7 +1149,7 @@ reverse",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Button&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Controls-Button&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -1096,8 +1159,8 @@ reverse",
     ],
     "description": "A button.",
     "details": "You can provide a single function child that will be called with
-      'hover' and 'focus' keys. This allows you to customize the rendering
-      of the Button in those cases.",
+      'disabled', 'hover' and 'focus' keys. 
+      This allows you to customize the rendering of the Button in those cases.",
     "intrinsicElement": "button",
     "name": "Button",
     "properties": Array [
@@ -1205,9 +1268,10 @@ string",
       Object {
         "description": "Function that can be called to render the visual representation.
       Button can take in Children as a function, node, or object. 
-      For example hover can be passed as an object that would 
-      then return a react element.
-      \`children={({ hover }) => <Box...>{...}</Box>}\`
+      For example, 'disabled', 'hover', and 'focus' can be passed as an 
+      argument that would then return a react element.
+      \`children={({ disabled, hover, focus }) => <Box...>{...}</Box>}\`. 
+      When Button has children, it is styled as a \`plain\` button.
       ",
         "format": "function
 object
@@ -1278,13 +1342,18 @@ with plain Buttons.",
         "format": "boolean
 string
 background
+string
 {
-  color: string,
+  color: 
+    string
+    {
+      dark: string,
+      light: string
+    },
   dark: 
     boolean
     string,
   image: string,
-  light: string,
   position: string,
   opacity: 
     string
@@ -1300,6 +1369,48 @@ background
   size: 
     cover
     contain
+    string,
+  light: string
+}
+{
+  background: 
+    string
+    {
+      color: 
+        string
+        {
+          dark: string,
+          light: string
+        },
+      dark: 
+        boolean
+        string,
+      image: string,
+      position: string,
+      opacity: 
+        string
+        boolean
+        number
+        weak
+        medium
+        strong,
+      repeat: 
+        no-repeat
+        repeat
+        string,
+      size: 
+        cover
+        contain
+        string,
+      light: string
+    },
+  elevation: 
+    none
+    xsmall
+    small
+    medium
+    large
+    xlarge
     string
 }",
         "name": "hoverIndicator",
@@ -1330,7 +1441,9 @@ background
         "description": "Whether this is a plain button with no border or pad.
           Non plain button will show both pad and border.
           The plain button has no border and unless the icon prop exist it has 
-          no pad as well.",
+          no pad as well. 
+          When using the kind button (i.e. button.default on the theme), 
+          the usage of plain is deprecated.",
         "format": "boolean",
         "name": "plain",
       },
@@ -1372,6 +1485,21 @@ string",
         "name": "target",
       },
       Object {
+        "description": "tooltip or a hint when hovering over the button.",
+        "format": "{
+  content: 
+    node
+    string,
+  dropProps: 
+    {
+
+    },
+  plain: boolean
+}
+string",
+        "name": "tip",
+      },
+      Object {
         "defaultValue": "button",
         "description": "The type of button. Set the type to submit for the default button on 
                 forms.",
@@ -1389,7 +1517,7 @@ submit",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Calendar&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Visualizations-Calendar&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -1505,6 +1633,14 @@ string",
         "name": "margin",
       },
       Object {
+        "defaultValue": "start",
+        "description": "When using range, Whether the next date selection will affect the 
+        start or end bound of the range.",
+        "format": "start
+end",
+        "name": "activeDate",
+      },
+      Object {
         "defaultValue": true,
         "description": "Whether to animate the calender as the user interacts with it.",
         "format": "boolean",
@@ -1515,6 +1651,17 @@ string",
         navigation in ISO8601 format",
         "format": "[string]",
         "name": "bounds",
+      },
+      Object {
+        "description": "Function that will be called to render each day.
+      It will be passed \`({date, day, isInRange, isSelected})\` where \`date\`
+      is a string containing an ISO8601 date for the day being rendered, \`day\`
+      is a number containing the day of the month being rendered, \`isInRange\`
+      is a boolean indicating whether the date is within a selected range of
+      dates, and \`isSelected\` is a boolean indicating whether this date
+      is selected.",
+        "format": "function",
+        "name": "children",
       },
       Object {
         "description": "The selected date in ISO8601 format",
@@ -1546,6 +1693,12 @@ string",
         "name": "daysOfWeek",
       },
       Object {
+        "defaultValue": false,
+        "description": "Whether the calendar should fill the parent container.",
+        "format": "boolean",
+        "name": "fill",
+      },
+      Object {
         "defaultValue": 0,
         "description": "The first day of the week. 0 for Sunday. 1 for Monday.",
         "format": "0
@@ -1567,10 +1720,10 @@ The function passes the following options:
   }
 \`\`\`
 
-\`onPreviousMonth\` and \`onNextMonth\` are callbacks that will tell the 
+\`onPreviousMonth\` and \`onNextMonth\` are callbacks that will tell the
 calendar to move between months.
-\`previousInBound\` and \`nextInBound\` are booleans that tell, when using 
-\`bounds\`, if the current date is within that range. You can then use that 
+\`previousInBound\` and \`nextInBound\` are booleans that tell, when using
+\`bounds\`, if the current date is within that range. You can then use that
 to disable the previous and next buttons.
 ",
         "format": "function",
@@ -1602,8 +1755,10 @@ to disable the previous and next buttons.
         "description": "Whether to automatically manage multiple date selection as a range.
         When the user clicks the first date, onSelect will be called with that
         date. When the user selects another date, onSelect will be called with
-        an array of two dates.",
-        "format": "boolean",
+        an array of two dates. If range = \\"array\\", then an array of dates will 
+        be returned even when the start or end date of the range is undefined.",
+        "format": "boolean
+array",
         "name": "range",
       },
       Object {
@@ -1613,8 +1768,11 @@ to disable the previous and next buttons.
       },
       Object {
         "defaultValue": true,
-        "description": "Whether to show the days from the previous and next months.",
-        "format": "boolean",
+        "description": "Whether to show the days from the previous and next months. 
+        \`trim\` limits adjacent days shown to rows containing days in 
+        the current month.",
+        "format": "boolean
+trim",
         "name": "showAdjacentDays",
       },
       Object {
@@ -1635,7 +1793,7 @@ string",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Card&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Layout-Card&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -1643,7 +1801,9 @@ string",
         "url": "https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=/card&module=%2Fsrc%2FCard.js",
       },
     ],
-    "description": "A Card.",
+    "description": "A Card is a container of information that provides access to more 
+      details. Elements of a Card can include Header, Body, Footer or any 
+      other custom component.",
     "intrinsicElement": "div",
     "name": "Card",
     "usage": "import { Card } from 'grommet';
@@ -1658,7 +1818,7 @@ string",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Chart&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Visualizations-Chart&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -1825,7 +1985,7 @@ string",
       Object {
         "description": "A unique identifier for the Chart. This
       is required if more than one Chart is shown and they use color
-      gradients.",
+      gradients or if a pattern is specified.",
         "format": "string",
         "name": "id",
       },
@@ -1958,6 +2118,16 @@ xlarge
 }
 string",
         "name": "pad",
+      },
+      Object {
+        "description": "When using an 'area' type, what pattern to fill the area with.",
+        "format": "squares
+circles
+stripesHorizontal
+stripesVertical
+stripesDiagonalDown
+stripesDiagonalUp",
+        "name": "pattern",
       },
       Object {
         "description": "When using a 'point' type, what shape the points should use.
@@ -2093,7 +2263,7 @@ point",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=CheckBox&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Input-CheckBox&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -2176,7 +2346,7 @@ NOTE: This can only be used with non-toggle components",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=CheckBoxGroup&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Input-CheckBoxGroup&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -2250,7 +2420,7 @@ NOTE: This can only be used with non-toggle components",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Clock&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Visualization-Clock&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -2400,11 +2570,15 @@ forward",
       },
       Object {
         "defaultValue": "medium",
-        "description": "Clock size",
-        "format": "small
+        "description": "Size for both Analog and Digital Clocks. For Analog,
+      there's also 'huge', that's equal to 'xxlarge' and exists
+      for backwards compatibility",
+        "format": "xsmall
+small
 medium
 large
 xlarge
+xxlarge
 string",
         "name": "size",
       },
@@ -2453,7 +2627,7 @@ vertical",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=DataChart&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Visualizations-DataChart&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -2969,7 +3143,7 @@ string",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=DateInput&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Input-DateInput&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -3070,7 +3244,7 @@ string",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Diagram&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Visualizations-Diagram&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -3141,7 +3315,7 @@ string",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Drop&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Controls-Drop&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -3178,6 +3352,134 @@ string",
         "name": "align",
       },
       Object {
+        "description": "Either a color 
+identifier to use for the background color. For example: 'neutral-1'. Or, a 
+'url()' for an image. Dark is not needed if color is provided.",
+        "format": "string
+{
+  color: 
+    string
+    {
+      dark: string,
+      light: string
+    },
+  dark: 
+    boolean
+    string,
+  image: string,
+  position: string,
+  opacity: 
+    string
+    boolean
+    number
+    weak
+    medium
+    strong,
+  repeat: 
+    no-repeat
+    repeat
+    string,
+  size: 
+    cover
+    contain
+    string,
+  light: string
+}",
+        "name": "background",
+      },
+      Object {
+        "description": "Elevated height of the target, indicated via a drop shadow. 
+      Only applicable if the Drop isn't plain.",
+        "format": "none
+xsmall
+small
+medium
+large
+xlarge
+string",
+        "name": "elevation",
+      },
+      Object {
+        "description": "The amount of margin around the component. An object can
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.",
+        "format": "none
+xxsmall
+xsmall
+small
+medium
+large
+xlarge
+{
+  bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  horizontal: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  left: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  top: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  vertical: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string
+}
+string",
+        "name": "margin",
+      },
+      Object {
         "description": "Function that will be invoked when the user clicks outside the drop.",
         "format": "function",
         "name": "onClickOutside",
@@ -3211,6 +3513,13 @@ string",
         "name": "overflow",
       },
       Object {
+        "defaultValue": false,
+        "description": "Whether the drop element should have no background, 
+        elevation, margin or round.",
+        "format": "boolean",
+        "name": "plain",
+      },
+      Object {
         "defaultValue": true,
         "description": "Whether to dynamically re-place when resized.",
         "format": "boolean",
@@ -3223,11 +3532,44 @@ string",
         "name": "restrictFocus",
       },
       Object {
+        "defaultValue": undefined,
+        "description": "How much to round the corners.",
+        "format": "boolean
+xsmall
+small
+medium
+large
+xlarge
+full
+string
+{
+  corner: 
+    top
+    left
+    bottom
+    right
+    top-left
+    top-right
+    bottom-left
+    bottom-right,
+  size: 
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string
+}",
+        "name": "round",
+      },
+      Object {
         "defaultValue": true,
-        "description": "Whether the drop element should be stretched to at least match the
-      width of the target element. The default is true because
-      that is what most uses of Drop want, like Select and Menu.",
-        "format": "boolean",
+        "description": "If set to true the drop element will be stretched to at least match the
+      width of the target element. If set to align the width of the drop element
+      will be restricted to the width of the target element. The default is true
+      because that is what most uses of Drop want, like Select and Menu.",
+        "format": "boolean
+align",
         "name": "stretch",
       },
       Object {
@@ -3238,21 +3580,10 @@ string",
         "required": true,
       },
       Object {
-        "description": "Elevated height of the target, indicated via a drop shadow.",
-        "format": "none
-xsmall
-small
-medium
-large
-xlarge
-string",
-        "name": "elevation",
-      },
-      Object {
-        "defaultValue": false,
-        "description": "Whether the drop element should have no background nor shadow",
+        "defaultValue": true,
+        "description": "Traps keyboard focus inside of drop.",
         "format": "boolean",
-        "name": "plain",
+        "name": "trapFocus",
       },
     ],
     "usage": "import { Drop } from 'grommet';
@@ -3263,7 +3594,7 @@ string",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=DropButton&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Controls-DropButton&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -3447,13 +3778,97 @@ string",
     "usage": "import { DropButton } from 'grommet';
 <DropButton dropContent={...} />",
   },
+  "FileInput": Object {
+    "availableAt": Array [
+      Object {
+        "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
+        "label": "Storybook",
+        "url": "https://storybook.grommet.io/?selectedKind=Input-FileInput&full=0&stories=1&panelRight=0",
+      },
+      Object {
+        "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
+        "label": "CodeSandbox",
+        "url": "https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=/fileinput&module=%2Fsrc%2FFileInput.js",
+      },
+    ],
+    "description": "A control to input one or more files.",
+    "intrinsicElement": "input",
+    "name": "FileInput",
+    "properties": Array [
+      Object {
+        "defaultValue": undefined,
+        "description": "Whether the control is disabled.",
+        "format": "boolean",
+        "name": "disabled",
+      },
+      Object {
+        "description": "The id attribute of the input.",
+        "format": "string",
+        "name": "id",
+      },
+      Object {
+        "defaultValue": Object {
+          "browse": "browse",
+          "dropPrompt": "Drop file here or",
+          "dropPromptMultiple": "Drop files here or",
+          "files": "files",
+          "remove": "remove",
+          "removeAll": "remove all",
+        },
+        "description": "Custom messages for FileInput. Used for accessibility by screen
+        readers.",
+        "format": "{
+  browse: string,
+  dropPrompt: string,
+  dropPromptMultiple: string,
+  files: string,
+  remove: string,
+  removeAll: string
+}",
+        "name": "messages",
+      },
+      Object {
+        "defaultValue": undefined,
+        "description": "Whether to allow multiple files. If an object is supplied,
+        'aggregageThreshold' indicates the maximum number of individual
+        files to show. Above this, only a single message describing the
+        number of files will be shown.",
+        "format": "boolean
+{
+  aggregateThreshold: number
+}",
+        "name": "multiple",
+      },
+      Object {
+        "description": "The name attribute of the input. This is required when used within
+      a Form.",
+        "format": "string",
+        "name": "name",
+      },
+      Object {
+        "description": "Function that will be called when one or more files are added to 
+      the input. The file(s) can be found in event.target.files.",
+        "format": "function",
+        "name": "onChange",
+      },
+      Object {
+        "description": "Provides custom rendering of the file. If not provided, the file's
+      name will be shown. It will be passed the browser File object as
+      an argument. For example: (file) => <Text>{file.name}</Text>",
+        "format": "node",
+        "name": "renderFile",
+      },
+    ],
+    "usage": "import { FileInput } from 'grommet';
+<FileInput id='file' name='file' />",
+  },
   "Footer": [Function],
   "Form": Object {
     "availableAt": Array [
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Form&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Input-Form&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -3518,8 +3933,8 @@ string",
       Object {
         "description": "Function that will be called when the form is validated. The
       single argument is an event containing the latest error object
-      via \`validationResults.errors\` and info object via 
-      \`validationResults.infos\`.",
+      via \`validationResults.errors\`, info object via 
+      \`validationResults.infos\` and form's validity via \`valid\`.",
         "format": "function",
         "name": "onValidate",
       },
@@ -3527,7 +3942,8 @@ string",
         "defaultValue": "submit",
         "description": "When to perform validation",
         "format": "blur
-submit",
+submit
+change",
         "name": "validate",
       },
       Object {
@@ -3571,7 +3987,7 @@ submit",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=FormField&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Input-FormField&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -3782,7 +4198,7 @@ function
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Grid&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Layout-Grid&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -3933,6 +4349,90 @@ stretch",
         "name": "areas",
       },
       Object {
+        "description": "Include a border.",
+        "format": "boolean
+top
+left
+bottom
+right
+start
+end
+horizontal
+vertical
+all
+{
+  color: 
+    string
+    {
+      dark: string,
+      light: string
+    },
+  side: 
+    top
+    left
+    bottom
+    right
+    start
+    end
+    horizontal
+    vertical
+    all,
+  size: 
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  style: 
+    solid
+    dashed
+    dotted
+    double
+    groove
+    ridge
+    inset
+    outset
+    hidden
+}
+[{
+  color: 
+    string
+    {
+      dark: string,
+      light: string
+    },
+  side: 
+    top
+    left
+    bottom
+    right
+    start
+    end
+    horizontal
+    vertical
+    all,
+  size: 
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  style: 
+    solid
+    dashed
+    dotted
+    double
+    groove
+    ridge
+    inset
+    outset
+    hidden
+}]",
+        "name": "border",
+      },
+      Object {
         "description": "Column sizes.
       If an array value is an array, the inner array indicates the
       minimum and maximum sizes for the column.
@@ -3990,20 +4490,23 @@ xlarge
     medium
     large
     xlarge
-    [xsmall
-small
-medium
-large
-xlarge
-full
-1/2
-1/3
-2/3
-1/4
-2/4
-3/4
-flex
-auto]
+    [
+      xsmall
+      small
+      medium
+      large
+      xlarge
+      full
+      1/2
+      1/3
+      2/3
+      1/4
+      2/4
+      3/4
+      flex
+      auto
+      string
+    ]
     string
 }
 string",
@@ -4221,14 +4724,120 @@ function",
     "usage": "import { Grid } from 'grommet';
 <Grid />",
   },
-  "Grommet": [Function],
+  "Grommet": Object {
+    "availableAt": Array [
+      Object {
+        "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
+        "label": "Storybook",
+        "url": "https://storybook.grommet.io/?selectedKind=Utilities-Grommet&full=0&stories=1&panelRight=0",
+      },
+      Object {
+        "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
+        "label": "CodeSandbox",
+        "url": "https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=/grommet&module=%2Fsrc%2FGrommet.js",
+      },
+    ],
+    "description": "The top level Grommet container.",
+    "intrinsicElement": "div",
+    "name": "Grommet",
+    "properties": Array [
+      Object {
+        "description": "Either a color 
+identifier to use for the background color. For example: 'neutral-1'. Or, a 
+'url()' for an image. Dark is not needed if color is provided.",
+        "format": "string
+{
+  color: 
+    string
+    {
+      dark: string,
+      light: string
+    },
+  dark: 
+    boolean
+    string,
+  image: string,
+  position: string,
+  opacity: 
+    string
+    boolean
+    number
+    weak
+    medium
+    strong,
+  repeat: 
+    no-repeat
+    repeat
+    string,
+  size: 
+    cover
+    contain
+    string,
+  light: string
+}",
+        "name": "background",
+      },
+      Object {
+        "description": "Layout direction for right to left contexts",
+        "format": "rtl",
+        "name": "dir",
+      },
+      Object {
+        "defaultValue": false,
+        "description": "Whether to take the whole viewport.",
+        "format": "boolean",
+        "name": "full",
+      },
+      Object {
+        "defaultValue": false,
+        "description": "Whether or not Grommet should apply a global font-family, font-size,
+        and line-height.",
+        "format": "boolean",
+        "name": "plain",
+      },
+      Object {
+        "defaultValue": false,
+        "description": "Whether to expose the css variables.",
+        "format": "boolean",
+        "name": "cssVars",
+      },
+      Object {
+        "description": "Custom styles for Grommet app component.",
+        "format": "object",
+        "name": "theme",
+      },
+      Object {
+        "description": "Dark vs. light theme variation. Default is unspecified and left to
+      theme.",
+        "format": "dark
+light",
+        "name": "themeMode",
+      },
+      Object {
+        "description": "User agent used to detect the device width for setting the initial
+      breakpoint.",
+        "format": "string",
+        "name": "userAgent",
+      },
+      Object {
+        "description": "The node where Drop and Layer containers are inserted. Defaults to
+      document.body which is almost always the right choice. This is used
+      for less common cases like rendering within an internal node (e.g.
+      shadow root).",
+        "format": "object",
+        "name": "containerTarget",
+      },
+    ],
+    "usage": "import { Grommet } from 'grommet';
+<Grommet>...</Grommet>",
+  },
   "Header": [Function],
   "Heading": Object {
     "availableAt": Array [
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Heading&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Type-Heading&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -4356,6 +4965,12 @@ string",
         "name": "color",
       },
       Object {
+        "defaultValue": undefined,
+        "description": "Whether the width should fill the container.",
+        "format": "boolean",
+        "name": "fill",
+      },
+      Object {
         "defaultValue": 1,
         "description": "The heading level. It corresponds to the number after the 'H' for
 the DOM tag. Set the level for semantic accuracy and accessibility.
@@ -4418,7 +5033,7 @@ is too long to all fit.",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Image&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Media-Image&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -4570,7 +5185,7 @@ boolean",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Layer&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Layout-Layer&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -4602,8 +5217,44 @@ boolean",
         "name": "animation",
       },
       Object {
+        "description": "Either a color 
+identifier to use for the background color. For example: 'neutral-1'. Or, a 
+'url()' for an image. Dark is not needed if color is provided.",
+        "format": "string
+{
+  color: 
+    string
+    {
+      dark: string,
+      light: string
+    },
+  dark: 
+    boolean
+    string,
+  image: string,
+  position: string,
+  opacity: 
+    string
+    boolean
+    number
+    weak
+    medium
+    strong,
+  repeat: 
+    no-repeat
+    repeat
+    string,
+  size: 
+    cover
+    contain
+    string,
+  light: string
+}",
+        "name": "background",
+      },
+      Object {
         "defaultValue": false,
-        "description": "Whether the width and/or height should fill the current viewport 
+        "description": "Whether the width and/or height should fill the current viewport
         size.",
         "format": "boolean
 vertical
@@ -4683,13 +5334,13 @@ string",
       },
       Object {
         "defaultValue": true,
-        "description": "Whether there should be an overlay preventing interaction underneath 
+        "description": "Whether there should be an overlay preventing interaction underneath
         the layer.",
         "format": "boolean",
         "name": "modal",
       },
       Object {
-        "description": "Function that will be invoked on modal layers when the user clicks 
+        "description": "Function that will be invoked on modal layers when the user clicks
       outside the layer.",
         "format": "function",
         "name": "onClickOutside",
@@ -4725,12 +5376,14 @@ top-right",
       },
       Object {
         "defaultValue": true,
-        "description": "Whether the layer should take full width and height on mobile",
+        "description": "Whether the layer should take full width and height on mobile. If a 
+        target is provided, the Layer will take the full width and height of 
+        the target.",
         "format": "boolean",
         "name": "responsive",
       },
       Object {
-        "description": "Target where the layer will be aligned to. This should be a React 
+        "description": "Target where the layer will be aligned to. This should be a React
       reference.",
         "format": "object",
         "name": "target",
@@ -4744,7 +5397,7 @@ top-right",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=List&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Visualizations-List&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -4907,6 +5560,7 @@ end
     start
     end,
   size: 
+    none
     xxsmall
     xsmall
     small
@@ -4970,63 +5624,22 @@ end
       },
       Object {
         "description": "Item padding.",
-        "format": "xxsmall
+        "format": "none
+xxsmall
 xsmall
 small
 medium
 large
 xlarge
-string
 {
-  horizontal: 
-    xxsmall
-    xsmall
-    small
-    medium
-    large
-    xlarge,
-  vertical: 
-    xxsmall
-    xsmall
-    small
-    medium
-    large
-    xlarge,
-  top: 
-    xxsmall
-    xsmall
-    small
-    medium
-    large
-    xlarge,
   bottom: 
     xxsmall
     xsmall
     small
     medium
     large
-    xlarge,
-  left: 
-    xxsmall
-    xsmall
-    small
-    medium
-    large
-    xlarge,
-  right: 
-    xxsmall
-    xsmall
-    small
-    medium
-    large
-    xlarge,
-  start: 
-    xxsmall
-    xsmall
-    small
-    medium
-    large
-    xlarge,
+    xlarge
+    string,
   end: 
     xxsmall
     xsmall
@@ -5034,8 +5647,67 @@ string
     medium
     large
     xlarge
-}",
+    string,
+  horizontal: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  left: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  top: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  vertical: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string
+}
+string",
         "name": "pad",
+      },
+      Object {
+        "defaultValue": undefined,
+        "description": "Whether to paginate the data. If providing an object, any Box props or 
+    Pagination props are valid and will be used to style the underlying 
+    pagination component.",
+        "format": "boolean
+object",
+        "name": "paginate",
       },
       Object {
         "description": "When a string is supplied, it indicates the property in a data item
@@ -5056,6 +5728,17 @@ function",
         "name": "secondaryKey",
       },
       Object {
+        "defaultValue": undefined,
+        "description": "If provided as a number, the index of an item to show. If using 
+        paginate and provided as an object in the format of show={{ page: 2 }}, 
+        the default page to show.",
+        "format": "number
+{
+  page: number
+}",
+        "name": "show",
+      },
+      Object {
         "defaultValue": 50,
         "description": "How many items to render at a time.",
         "format": "number",
@@ -5072,7 +5755,7 @@ function",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=MaskedInput&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Input-MaskedInput&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -5088,6 +5771,21 @@ function",
         "description": "Custom title to be used by screen readers.",
         "format": "string",
         "name": "a11yTitle",
+      },
+      Object {
+        "description": "The height of the drop container.",
+        "format": "xsmall
+small
+medium
+large
+xlarge
+string",
+        "name": "dropHeight",
+      },
+      Object {
+        "description": "Any valid Drop prop.",
+        "format": "object",
+        "name": "dropProps",
       },
       Object {
         "description": "An optional icon to show. This could be used to provide an
@@ -5112,6 +5810,11 @@ function",
         "name": "onChange",
       },
       Object {
+        "description": "Whether the plain MaskedInput should receive a focus outline.",
+        "format": "boolean",
+        "name": "focusIndicator",
+      },
+      Object {
         "description": "Function that will be called when the user leaves the field.",
         "format": "function",
         "name": "onBlur",
@@ -5119,7 +5822,8 @@ function",
       Object {
         "description": "Describes the structure of the mask. If a regexp is provided, it should
       allow both the final full string element as well as partial strings
-      as the user types characters one by one.",
+      as the user types characters one by one. When using regexp to match number
+      values make sure that the option values are numbers as well.",
         "format": "[{
   length: 
     number
@@ -5167,7 +5871,7 @@ number",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Menu&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Controls-Menu&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -5179,8 +5883,9 @@ number",
     "details": "The labels and behavior of the contained Buttons are described
       via the \`items\` property.
       You can provide a single function child that will be called with
-      'hover', 'focus', and 'drop' keys. This allows you to customize
-      the rendering of the Menu button in those cases.",
+      'disabled', 'hover', 'focus', and 'drop' keys. 
+      This allows you to customize the rendering of the Menu button 
+      in those cases.",
     "intrinsicElement": "button",
     "name": "Menu",
     "properties": Array [
@@ -5286,13 +5991,23 @@ string",
         "name": "margin",
       },
       Object {
-        "description": "Function that will be called to render the visual representation.
-      It will be passed an object containing button props.
-      It should return a react element.
-      For example:
-      \`children={({ drop, hover }) => <Box ...>{...}</Box>}\`
-      ",
-        "format": "function",
+        "description": "Menu can take in children as a function or node.
+
+- Function that will be called to render the visual representation.
+It will be passed a props object. The props passed are
+different depending on the menu \`open\` state. When the menu is closed,
+two props are passed:
+\`{ hover, focus }\`,
+but when the menu is open, all menu props are passed to this function.
+It should return a React element.
+For example:
+\`children={(props) => <Box ...>{...}</Box>}\`
+**Note:** This function will be invoked on every mouse move when hovering.
+- Node is anything that can be rendered, e.g.
+\`<Box><CaretNext /><Text>Open Me</Text></Box>\`
+",
+        "format": "function
+node",
         "name": "children",
       },
       Object {
@@ -5309,7 +6024,7 @@ string",
         "description": "Where to place the drop down.
 The keys correspond to a side of the drop down.
 The values correspond to a side of the control. For instance,
-{left: 'left', top: 'bottom'} would align the left edges and the top of
+\`{left: 'left', top: 'bottom'}\` would align the left edges and the top of
 the drop down to the bottom of the control. At most one of left or right and
 one of top or bottom should be specified.",
         "format": "{
@@ -5350,7 +6065,7 @@ one of top or bottom should be specified.",
         "name": "dropTarget",
       },
       Object {
-        "defaultValue": Object {},
+        "defaultValue": undefined,
         "description": "Any valid Drop prop.",
         "format": "object",
         "name": "dropProps",
@@ -5376,7 +6091,7 @@ node",
         "defaultValue": Array [],
         "description": "Menu items to be placed inside the drop down.
 The object values can be any Button prop, 
-for example: label, onClick, and href.",
+for example: \`label\`, \`onClick\`, and \`href\`.",
         "format": "[object]",
         "name": "items",
         "required": true,
@@ -5425,7 +6140,7 @@ string",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Meter&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Visualizations-Meter&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -5556,6 +6271,12 @@ string",
         "name": "background",
       },
       Object {
+        "description": "The color of the value region.
+      This is only valid when used with 'value'",
+        "format": "string",
+        "name": "color",
+      },
+      Object {
         "description": "The maximum value for the Meter.",
         "format": "number
 string",
@@ -5598,6 +6319,13 @@ circle",
         "name": "type",
       },
       Object {
+        "description": "
+      The numeric value to represent. Ignored when 'values' is specified.
+    ",
+        "format": "number",
+        "name": "value",
+      },
+      Object {
         "description": "Array of value objects describing the data.
       'value' is the actual numeric value.
       'label' is a text string describing it.
@@ -5622,12 +6350,186 @@ circle",
 <Meter />",
   },
   "Nav": [Function],
+  "Pagination": Object {
+    "availableAt": Array [
+      Object {
+        "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
+        "label": "Storybook",
+        "url": "https://storybook.grommet.io/?selectedKind=Controls-Pagination&full=0&stories=1&panelRight=0",
+      },
+      Object {
+        "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
+        "label": "CodeSandbox",
+        "url": "https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=/pagination&module=%2Fsrc%2FPagination.js",
+      },
+    ],
+    "description": "A control that enables selection of a single page from a 
+      range of pages.",
+    "intrinsicElement": "nav",
+    "name": "Pagination",
+    "properties": Array [
+      Object {
+        "description": "Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.",
+        "format": "string",
+        "name": "a11yTitle",
+      },
+      Object {
+        "description": "How to align along the cross axis when contained in
+      a Box or along the column axis when contained in a Grid.",
+        "format": "start
+center
+end
+stretch",
+        "name": "alignSelf",
+      },
+      Object {
+        "description": "The name of the area to place
+    this inside a parent Grid.",
+        "format": "string",
+        "name": "gridArea",
+      },
+      Object {
+        "description": "The amount of margin around the component. An object can
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.",
+        "format": "none
+xxsmall
+xsmall
+small
+medium
+large
+xlarge
+{
+  bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  horizontal: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  left: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  top: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  vertical: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string
+}
+string",
+        "name": "margin",
+      },
+      Object {
+        "defaultValue": 1,
+        "description": "The number of pagination buttons visible at the start and end of page 
+        range.",
+        "format": "number",
+        "name": "numberEdgePages",
+      },
+      Object {
+        "defaultValue": undefined,
+        "description": "The total number of items to paginate.",
+        "format": "number",
+        "name": "numberItems",
+      },
+      Object {
+        "defaultValue": 3,
+        "description": "The number of pagination buttons visible in the middle of the 
+        controls.",
+        "format": "number",
+        "name": "numberMiddlePages",
+      },
+      Object {
+        "defaultValue": undefined,
+        "description": "Function called when the user clicks a page or arrow button. The 
+        single argument is an event containing the target page via 
+        \`event.page\`, and the startIndex and endIndex for items contained 
+        in the target page via \`event.startIndex\` and \`event.endIndex\`, 
+        respectively.",
+        "format": "function",
+        "name": "onChange",
+      },
+      Object {
+        "defaultValue": undefined,
+        "description": "The default page. If used with onChange, it can be used to control the 
+        active page via state.",
+        "format": "number",
+        "name": "page",
+      },
+      Object {
+        "defaultValue": "medium",
+        "description": "Specifies what size the pagination control buttons should be.",
+        "format": "small
+medium
+large",
+        "name": "size",
+      },
+      Object {
+        "defaultValue": 10,
+        "description": "The number of items per page.",
+        "format": "number",
+        "name": "step",
+      },
+    ],
+    "usage": "import { Pagination } from 'grommet';
+      <Pagination />",
+  },
   "Paragraph": Object {
     "availableAt": Array [
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Paragraph&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Type-Paragraph&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -5750,7 +6652,7 @@ string",
         "name": "color",
       },
       Object {
-        "defaultValue": false,
+        "defaultValue": undefined,
         "description": "Whether the width should fill the container.",
         "format": "boolean",
         "name": "fill",
@@ -5789,7 +6691,7 @@ end",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=RadioButton&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Input-RadioButton&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -5863,7 +6765,7 @@ with the same name so form submissions work.",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=RadioButtonGroup&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Input-RadioButtonGroup&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -5941,7 +6843,7 @@ object",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=RangeInput&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Input-RangeInput&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -6008,7 +6910,7 @@ string",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=RangeSelector&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Input-RangeSelector&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -6124,7 +7026,7 @@ string",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Select&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Input-Select&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -6247,10 +7149,35 @@ string",
         "name": "children",
       },
       Object {
+        "defaultValue": false,
+        "description": "Whether to provide a button option to clear selections.",
+        "format": "boolean
+{
+  position: 
+    top
+    bottom,
+  label: string
+}",
+        "name": "clear",
+      },
+      Object {
         "defaultValue": true,
         "description": "Wether to close the drop when a selection is made.",
         "format": "boolean",
         "name": "closeOnChange",
+      },
+      Object {
+        "description": "Initially selected value. This can be an array
+      when multiple.",
+        "format": "string
+object
+number
+[
+  string
+  object
+  number
+]",
+        "name": "defaultValue",
       },
       Object {
         "defaultValue": false,
@@ -6352,7 +7279,9 @@ function",
         "name": "messages",
       },
       Object {
-        "description": "Whether to allow multiple options to be selected.",
+        "description": "Whether to allow multiple options to be selected. When multiple is true, 
+      'value' should be an array of selected options and 'options' should be 
+      an array of possible options",
         "format": "boolean",
         "name": "multiple",
       },
@@ -6508,6 +7437,59 @@ function
   },
   "SkipLinkTarget": [Function],
   "SkipLinks": [Function],
+  "Spinner": Object {
+    "availableAt": Array [
+      Object {
+        "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
+        "label": "Storybook",
+        "url": "https://storybook.grommet.io/?selectedKind=Visualizations-Spinner&full=0&stories=1&panelRight=0",
+      },
+      Object {
+        "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
+        "label": "CodeSandbox",
+        "url": "https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=/spinner&module=%2Fsrc%2FSpinner.js",
+      },
+    ],
+    "description": "A Spinner.",
+    "name": "Spinner",
+    "properties": Array [
+      Object {
+        "defaultValue": "small",
+        "description": "A fixed size.",
+        "format": "xsmall
+small
+medium
+large
+xlarge
+string",
+        "name": "size",
+      },
+      Object {
+        "defaultValue": undefined,
+        "description": "The border color of the Spinner.",
+        "format": "string
+{
+  dark: string,
+  light: string
+}",
+        "name": "color",
+      },
+      Object {
+        "defaultValue": undefined,
+        "description": "The message that will be announced for screen readers when message 
+        is a string. When an object, the start message will be announced 
+        as the Spinner shows, and the end message as the spinner closes.",
+        "format": "string
+{
+  start: string,
+  end: string
+}",
+        "name": "message",
+      },
+    ],
+    "usage": "import { Spinner } from 'grommet';
+<Spinner/>",
+  },
   "Stack": [Function],
   "Tab": Object {
     "description": "One tab within Tabs.",
@@ -6599,12 +7581,36 @@ middle
 bottom",
         "name": "verticalAlign",
       },
+      Object {
+        "description": "How to align the body inside the Table.",
+        "format": "left
+right
+center
+justify
+inherit
+start
+end
+string",
+        "name": "align",
+      },
     ],
     "usage": "import { TableCell } from 'grommet';
 <TableCell />",
   },
-  "TableFooter": [Function],
-  "TableHeader": [Function],
+  "TableFooter": Object {
+    "description": "The footer of a table.",
+    "intrinsicElement": "tfoot",
+    "name": "TableFooter",
+    "usage": "import { TableFooter } from 'grommet';
+<TableFooter />",
+  },
+  "TableHeader": Object {
+    "description": "The header of a table.",
+    "intrinsicElement": "thead",
+    "name": "TableHeader",
+    "usage": "import { TableHeader } from 'grommet';
+<TableHeader />",
+  },
   "TableRow": Object {
     "description": "A row of cells in a table.",
     "intrinsicElement": "tr",
@@ -6617,7 +7623,7 @@ bottom",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Tabs&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Controls-Tabs&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -6794,7 +7800,7 @@ currently active tab changes.",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Text&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Type-Text&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -6921,16 +7927,18 @@ string",
       },
       Object {
         "defaultValue": "medium",
-        "description": "The font size and line height are primarily driven by the chosen tag. 
-But, it can be adjusted via this size property. The tag should be set for 
-semantic correctness and accessibility. This size property allows for stylistic
-adjustments.",
+        "description": "The font size and line space height of the text.",
         "format": "xsmall
 small
 medium
 large
 xlarge
 xxlarge
+2xl
+3xl
+4xl
+5xl
+6xl
 string",
         "name": "size",
       },
@@ -6960,7 +7968,8 @@ end",
       Object {
         "defaultValue": false,
         "description": "Restrict the text to a single line and truncate with ellipsis if it
-is too long to all fit.",
+is too long to all fit. For truncate to be applied, Text needs to be 
+contained within a layout component (such as Box or a generic div).",
         "format": "boolean",
         "name": "truncate",
       },
@@ -6989,7 +7998,7 @@ break-word",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=TextArea&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Input-TextArea&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -7019,7 +8028,7 @@ break-word",
         "name": "fill",
       },
       Object {
-        "description": "Whether the plain textarea should receive a focus outline.",
+        "description": "Whether the plain TextArea should receive a focus outline.",
         "format": "boolean",
         "name": "focusIndicator",
       },
@@ -7075,7 +8084,7 @@ string",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=TextInput&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Input-TextInput&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -7091,6 +8100,15 @@ string",
         "description": "Custom title to be used by screen readers.",
         "format": "string",
         "name": "a11yTitle",
+      },
+      Object {
+        "description": "Default suggestion to highlight, as an index into the suggestions array.
+
+      If set, the suggestion at the specified index in the suggestions array
+      will be highlighted by default when the suggestions drop opens.
+      ",
+        "format": "number",
+        "name": "defaultSuggestion",
       },
       Object {
         "defaultValue": Object {
@@ -7149,7 +8167,7 @@ string",
         "name": "id",
       },
       Object {
-        "description": "Whether the plain text input should receive a focus outline.",
+        "description": "Whether the plain TextInput should receive a focus outline.",
         "format": "boolean",
         "name": "focusIndicator",
       },
@@ -7181,10 +8199,19 @@ string",
         "name": "onChange",
       },
       Object {
-        "description": "Function that will be called when the user selects a suggestion.
-The suggestion contains the object chosen from the supplied suggestions.",
+        "description": "Note: This function is deprecated, use onSuggestionSelect instead.
+      Function that will be called when the user selects a suggestion.
+      The suggestion contains the object chosen from the supplied suggestions.
+      When used in conjunction with onSuggestionSelect
+      this will default to React's onSelect",
         "format": "function",
         "name": "onSelect",
+      },
+      Object {
+        "description": "Function that will be called when the user selects a suggestion.
+      The suggestion contains the object chosen from the supplied suggestions.",
+        "format": "function",
+        "name": "onSuggestionSelect",
       },
       Object {
         "description": "Function that will be called when the suggestions drop is opened.",
@@ -7202,9 +8229,12 @@ The suggestion contains the object chosen from the supplied suggestions.",
         "name": "placeholder",
       },
       Object {
-        "description": "Whether this is a plain input with no border or padding.
-Only use this when the containing context provides sufficient affordance",
-        "format": "boolean",
+        "description": "Whether this is a plain input with no border or outline.
+      Use \\"full\\" to remove padding in addition to removing border and outline.
+      Only use this when the containing context provides sufficient
+      affordance.",
+        "format": "boolean
+full",
         "name": "plain",
       },
       Object {
@@ -7235,6 +8265,14 @@ suggestions and instead rely on the user to type more.",
         "name": "suggestions",
       },
       Object {
+        "defaultValue": "start",
+        "description": "How to align the text inside the input.",
+        "format": "start
+center
+end",
+        "name": "textAlign",
+      },
+      Object {
         "description": "What text to put in the input.",
         "format": "string
 number",
@@ -7244,12 +8282,52 @@ number",
     "usage": "import { TextInput } from 'grommet';
 <TextInput id='item' name='item' />",
   },
+  "Tip": Object {
+    "availableAt": Array [
+      Object {
+        "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
+        "label": "Storybook",
+        "url": "https://storybook.grommet.io/?selectedKind=Controls-Tip&full=0&stories=1&panelRight=0",
+      },
+      Object {
+        "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
+        "label": "CodeSandbox",
+        "url": "https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=/tip&module=%2Fsrc%2FTip.js",
+      },
+    ],
+    "description": "Tooltip or a hint when hovering over an element. The tooltip will render 
+      when hovering on top of the Tip's child node or string.",
+    "name": "Tip",
+    "properties": Array [
+      Object {
+        "description": "The tooltip content inside the drop.",
+        "format": "node",
+        "name": "content",
+      },
+      Object {
+        "defaultValue": Object {
+          "trapFocus": false,
+        },
+        "description": "Any valid Drop prop to style the Tip drop container.",
+        "format": "object",
+        "name": "dropProps",
+      },
+      Object {
+        "defaultValue": undefined,
+        "description": "Whether content should have default styling from tip.content.",
+        "format": "boolean",
+        "name": "plain",
+      },
+    ],
+    "usage": "import { Tip } from 'grommet';
+<Tip />",
+  },
   "Video": Object {
     "availableAt": Array [
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=Video&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Media-Video&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -7426,7 +8504,7 @@ contain",
       Object {
         "badge": "https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png",
         "label": "Storybook",
-        "url": "https://storybook.grommet.io/?selectedKind=WorldMap&full=0&addons=0&stories=1&panelRight=0",
+        "url": "https://storybook.grommet.io/?selectedKind=Visualizations-WorldMap&full=0&stories=1&panelRight=0",
       },
       Object {
         "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
@@ -7583,7 +8661,8 @@ boolean",
         "name": "onSelectPlace",
       },
       Object {
-        "description": "Place details.",
+        "description": "Place details. location is an array of two numeric values that indicates
+       the latitude and longitude of the specified location.",
         "format": "[{
   color: 
     string

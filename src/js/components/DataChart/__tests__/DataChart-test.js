@@ -23,6 +23,23 @@ describe('DataChart', () => {
     warnSpy.mockRestore();
   });
 
+  test('nothing', () => {
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation();
+    const component = renderer.create(
+      <Grommet>
+        <DataChart data={data} />
+        <DataChart data={data} series={[]} />
+        <DataChart data={data} series={[{}]} />
+        <DataChart data={data} series={[{ property: 'a' }, {}]} />
+        <DataChart data={data} chart={[]} />
+        <DataChart data={data} chart={[{}]} />
+      </Grommet>,
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+    warnSpy.mockRestore();
+  });
+
   test('gap', () => {
     const warnSpy = jest.spyOn(console, 'warn').mockImplementation();
     const component = renderer.create(
@@ -166,6 +183,100 @@ describe('DataChart', () => {
           // eslint-disable-next-line react/no-array-index-key
           <DataChart key={i} data={data} series="a" detail={detail} />
         ))}
+      </Grommet>,
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+    warnSpy.mockRestore();
+  });
+
+  test('axis x granularity', () => {
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation();
+    const component = renderer.create(
+      <Grommet>
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(count => (
+          <DataChart
+            key={count}
+            data={Array.from({ length: count }, (x, i) => ({ a: i }))}
+            series="a"
+            axis={{ x: { granularity: 'medium' } }}
+          />
+        ))}
+      </Grommet>,
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+    warnSpy.mockRestore();
+  });
+
+  test('type', () => {
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation();
+    const component = renderer.create(
+      <Grommet>
+        {['bar', 'line', 'area'].map(type => (
+          <DataChart
+            key={type}
+            data={data}
+            series="a"
+            chart={[{ property: 'a', type }]}
+          />
+        ))}
+      </Grommet>,
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+    warnSpy.mockRestore();
+  });
+
+  test('bars', () => {
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation();
+    const component = renderer.create(
+      <Grommet>
+        <DataChart
+          data={data}
+          series={['a', 'c']}
+          chart={[{ property: ['a', 'c'], type: 'bars' }]}
+        />
+      </Grommet>,
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+    warnSpy.mockRestore();
+  });
+
+  test('bars colors', () => {
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation();
+    const component = renderer.create(
+      <Grommet>
+        <DataChart
+          data={data}
+          series={['a', 'c']}
+          chart={[
+            {
+              property: [
+                { property: 'a', color: 'graph-1' },
+                { property: 'c', color: 'graph-3' },
+              ],
+              type: 'bars',
+            },
+          ]}
+        />
+      </Grommet>,
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+    warnSpy.mockRestore();
+  });
+
+  test('bars invalid', () => {
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation();
+    const component = renderer.create(
+      <Grommet>
+        <DataChart
+          data={data}
+          series={['a']}
+          chart={[{ property: ['a', 'c', ''], type: 'bars' }]}
+        />
       </Grommet>,
     );
     const tree = component.toJSON();

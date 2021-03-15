@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import { Box, DataChart, Grommet, Text } from 'grommet';
 import { grommet } from 'grommet/themes';
@@ -13,7 +12,7 @@ for (let i = 1; i < 8; i += 1) {
   });
 }
 
-const Example = () => (
+export const Size = () => (
   <Grommet full theme={grommet}>
     <Box fill="horizontal" align="center" justify="center" pad="large">
       <DataChart
@@ -40,4 +39,6 @@ const Example = () => (
   </Grommet>
 );
 
-storiesOf('DataChart', module).add('Size', () => <Example />);
+export default {
+  title: 'Visualizations/DataChart/Size',
+};

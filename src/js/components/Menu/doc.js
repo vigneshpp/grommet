@@ -1,20 +1,22 @@
 import { describe, PropTypes } from 'react-desc';
 
-import { genericProps, getAvailableAtBadge } from '../../utils';
+import { genericProps } from '../../utils/prop-types';
+import { getAvailableAtBadge } from '../../utils/mixins';
 
 const VERTICAL_ALIGN_OPTIONS = ['top', 'bottom'];
 const HORIZONTAL_ALIGN_OPTIONS = ['right', 'left'];
 
 export const doc = Menu => {
   const DocumentedMenu = describe(Menu)
-    .availableAt(getAvailableAtBadge('Menu'))
+    .availableAt(getAvailableAtBadge('Menu', 'Controls'))
     .description(`A control that opens a Drop containing plain Buttons.`)
     .details(
       `The labels and behavior of the contained Buttons are described
       via the \`items\` property.
       You can provide a single function child that will be called with
-      'hover', 'focus', and 'drop' keys. This allows you to customize
-      the rendering of the Menu button in those cases.`,
+      'disabled', 'hover', 'focus', and 'drop' keys. 
+      This allows you to customize the rendering of the Menu button 
+      in those cases.`,
     )
     .usage(
       `import { Menu } from 'grommet';
@@ -24,13 +26,22 @@ export const doc = Menu => {
 
   DocumentedMenu.propTypes = {
     ...genericProps,
-    children: PropTypes.func.description(
-      `Function that will be called to render the visual representation.
-      It will be passed an object containing button props.
-      It should return a react element.
-      For example:
-      \`children={({ drop, hover }) => <Box ...>{...}</Box>}\`
-      `,
+    children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]).description(
+      `Menu can take in children as a function or node.
+
+- Function that will be called to render the visual representation.
+It will be passed a props object. The props passed are
+different depending on the menu \`open\` state. When the menu is closed,
+two props are passed:
+\`{ hover, focus }\`,
+but when the menu is open, all menu props are passed to this function.
+It should return a React element.
+For example:
+\`children={(props) => <Box ...>{...}</Box>}\`
+**Note:** This function will be invoked on every mouse move when hovering.
+- Node is anything that can be rendered, e.g.
+\`<Box><CaretNext /><Text>Open Me</Text></Box>\`
+`,
     ),
     disabled: PropTypes.bool
       .description('Whether the menu should be disabled.')
@@ -45,7 +56,7 @@ export const doc = Menu => {
         `Where to place the drop down.
 The keys correspond to a side of the drop down.
 The values correspond to a side of the control. For instance,
-{left: 'left', top: 'bottom'} would align the left edges and the top of
+\`{left: 'left', top: 'bottom'}\` would align the left edges and the top of
 the drop down to the bottom of the control. At most one of left or right and
 one of top or bottom should be specified.`,
       )
@@ -66,7 +77,9 @@ one of top or bottom should be specified.`,
       a React reference. Typically, this is not required as the drop will be
       aligned to the Menu itself by default.`,
     ),
-    dropProps: PropTypes.object.description('Any valid Drop prop.'),
+    dropProps: PropTypes.object
+      .description('Any valid Drop prop.')
+      .defaultValue(undefined),
     justifyContent: PropTypes.oneOf([
       'start',
       'center',
@@ -83,7 +96,7 @@ one of top or bottom should be specified.`,
     items: PropTypes.arrayOf(PropTypes.object).description(
       `Menu items to be placed inside the drop down.
 The object values can be any Button prop, 
-for example: label, onClick, and href.`,
+for example: \`label\`, \`onClick\`, and \`href\`.`,
     ).isRequired,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).description(
       'Indicates the label shown as a control to open it.',
@@ -127,6 +140,14 @@ export const themeDoc = {
       'The color for the background of the menu Drop when it is open.',
     type: 'string',
     defaultValue: undefined,
+  },
+  'menu.drop': {
+    description: 'Any valid Drop props for the Menu drop.',
+    type: 'object',
+    defaultValue: `align: {
+      top: 'top',
+      left: 'left',
+    },`,
   },
   'menu.extend': {
     description: 'Any additional style for the Menu.',

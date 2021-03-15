@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import {
   disabledStyle,
@@ -6,12 +6,22 @@ import {
   inputStyle,
   parseMetricToNum,
   plainInputStyle,
+  textAlignStyle,
 } from '../../utils';
 import { defaultProps } from '../../default-props';
 
+const getPlainStyle = plain => {
+  if (plain === 'full') {
+    return css`
+      ${plainInputStyle} padding: 0;
+    `;
+  }
+  return plain && plainInputStyle;
+};
+
 const StyledTextInput = styled.input`
   ${inputStyle}
-  ${props => props.plain && plainInputStyle}
+  ${props => getPlainStyle(props.plain)}
   ${props =>
     props.icon &&
     (props.reverse
@@ -23,6 +33,7 @@ const StyledTextInput = styled.input`
       props.theme.textInput.disabled && props.theme.textInput.disabled.opacity,
     )}
   ${props => props.theme.textInput && props.theme.textInput.extend};
+  ${props => props.textAlign && textAlignStyle}
 `;
 
 StyledTextInput.defaultProps = {};

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { genericStyles, normalizeColor } from '../../utils';
+import { genericStyles, normalizeColor, textAlignStyle } from '../../utils';
 import { defaultProps } from '../../default-props';
 
 const sizeStyle = props => {
@@ -18,18 +18,9 @@ const sizeStyle = props => {
   `;
 };
 
-const TEXT_ALIGN_MAP = {
-  center: 'center',
-  end: 'right',
-  start: 'left',
-};
-
-const textAlignStyle = css`
-  text-align: ${props => TEXT_ALIGN_MAP[props.textAlign]};
-`;
-
 const truncateStyle = `
   white-space: nowrap;
+  max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
@@ -46,6 +37,10 @@ const wordBreakStyle = css`
   word-break: ${props => props.wordBreak};
 `;
 
+const fontFamily = css`
+  font-family: ${props => props.theme.text.font.family};
+`;
+
 const StyledText = styled('span').withConfig({
   shouldForwardProp: (prop, defaultValidatorFn) =>
     defaultValidatorFn(prop) && prop !== 'size',
@@ -57,6 +52,8 @@ const StyledText = styled('span').withConfig({
   ${props => props.colorProp && colorStyle}
   ${props => props.weight && weightStyle}
   ${props => props.wordBreak && wordBreakStyle}
+  ${props =>
+    props.theme.text.font && props.theme.text.font.family && fontFamily}
 
   ${props => props.theme.text && props.theme.text.extend}
 `;

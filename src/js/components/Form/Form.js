@@ -63,14 +63,96 @@ const Form = forwardRef(
     const [validationResults, setValidationResults] = useState(
       defaultValidationResults,
     );
-    useEffect(
-      () => setValidationResults({ errors: errorsProp, infos: infosProp }),
-      [errorsProp, infosProp],
-    );
+    const [requiredFields, setRequiredFields] = useState([]);
+
+    // when onBlur input validation is triggered, we need to complete any
+    // potential click events before running the onBlur validation.
+    // otherwise, click events like reset, etc. may not be registered.
+    // for a detailed scenario/discussion,
+    // see: https://github.com/grommet/grommet/issues/4863
+    // the value of pendingValidation is the name of the FormField
+    // awaiting validation.
+    const [pendingValidation, setPendingValidation] = useState(undefined);
+
+    useEffect(() => {
+      setPendingValidation(undefined);
+      setValidationResults({ errors: errorsProp, infos: infosProp });
+    }, [errorsProp, infosProp]);
     const validations = useRef({});
+
+    // Currently, onBlur validation will trigger after a timeout of 120ms.
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        if (pendingValidation) {
+          // run validations on the pending one and any other touched fields
+          const [validatedErrors, validatedInfos] = validate(
+            Object.entries(validations.current).filter(
+              ([n]) => touched[n] || pendingValidation.includes(n),
+            ),
+            value,
+          );
+          setPendingValidation(undefined);
+
+          setValidationResults(prevValidationResults => {
+            const nextErrors = {
+              ...prevValidationResults.errors,
+              ...validatedErrors,
+            };
+            const nextInfos = {
+              ...prevValidationResults.infos,
+              ...validatedInfos,
+            };
+
+            // Remove any errors or infos that we don't have any validations
+            // for anymore. This can occur when fields are dynamically removed.
+            Object.keys(nextErrors)
+              .filter(
+                n => !validations.current[n] || nextErrors[n] === undefined,
+              )
+              .map(n => delete nextErrors[n]);
+            Object.keys(nextInfos)
+              .filter(
+                n => !validations.current[n] || nextInfos[n] === undefined,
+              )
+              .map(n => delete nextInfos[n]);
+
+            let valid = false;
+
+            valid = requiredFields
+              .filter(n => Object.keys(validations.current).includes(n))
+              .every(
+                field =>
+                  value[field] &&
+                  (value[field] !== '' || value[field] !== false),
+              );
+
+            if (Object.keys(nextErrors).length > 0) valid = false;
+
+            // keep any previous errors and infos for untouched keys,
+            // these may have come from a submit
+            const nextValidationResults = {
+              errors: nextErrors,
+              infos: nextInfos,
+              valid,
+            };
+            if (onValidate) onValidate(nextValidationResults);
+            return nextValidationResults;
+          });
+        }
+        // a timeout is needed to ensure that a click event (like one on a reset
+        // button) completes prior to running the validation. without a timeout,
+        // the blur will always complete and trigger a validation prematurely
+        // The following values have been empirically tested, but 120 was
+        // selected because it is the largest value
+        // Chrome: 100, Safari: 120, Firefox: 80
+      }, 120);
+
+      return () => clearTimeout(timer);
+    }, [pendingValidation, onValidate, touched, value, requiredFields]);
 
     // clear any errors when value changes
     useEffect(() => {
+      if (validateOn !== 'change') setPendingValidation(undefined);
       setValidationResults(prevValidationResults => {
         const [nextErrors, nextInfos] = validate(
           Object.entries(validations.current).filter(
@@ -84,7 +166,7 @@ const Form = forwardRef(
           infos: { ...prevValidationResults.infos, ...nextInfos },
         };
       });
-    }, [touched, value]);
+    }, [touched, validateOn, value]);
 
     // There are three basic patterns of handling form input value state:
     //
@@ -146,6 +228,9 @@ const Form = forwardRef(
       else if (valueProp && name && formValue !== undefined)
         // form drives, pattern #1
         useValue = formValue;
+      else if (formValue === undefined && name)
+        // form has reset, so reset input value as well
+        useValue = initialValue;
       else useValue = inputValue;
 
       return [
@@ -153,19 +238,18 @@ const Form = forwardRef(
         nextComponentValue => {
           if (name) {
             // we have somewhere to put this
+            const nextTouched = { ...touched };
+            nextTouched[name] = true;
+
             if (!touched[name]) {
               // don't update if not needed
-              setTouched(prevTouched => {
-                const nextTouched = { ...prevTouched };
-                nextTouched[name] = true;
-                return nextTouched;
-              });
+              setTouched(nextTouched);
             }
 
             const nextValue = { ...value };
             nextValue[name] = nextComponentValue;
             setValueState(nextValue);
-            if (onChange) onChange(nextValue);
+            if (onChange) onChange(nextValue, { touched: nextTouched });
           }
           if (initialValue !== undefined) setInputValue(nextComponentValue);
         },
@@ -219,6 +303,14 @@ const Form = forwardRef(
           return result;
         };
 
+        if (required) {
+          setRequiredFields(prevValue =>
+            !prevValue.includes(name) ? [...prevValue, name] : prevValue,
+          );
+        } else {
+          setRequiredFields(prevValue => prevValue.filter(v => v !== name));
+        }
+
         if (validateArg || required) {
           validations.current[name] = validateField;
           return () => delete validations.current[name];
@@ -233,26 +325,17 @@ const Form = forwardRef(
         inForm: true,
         onBlur:
           validateOn === 'blur'
-            ? () => {
-                // run validations on touched keys
-                const [nextErrors, nextInfos] = validate(
-                  Object.entries(validations.current).filter(
-                    ([n]) => touched[n] || n === name,
-                  ),
-                  value,
-                );
-                // give user access to errors that have occurred on validation
-                setValidationResults(prevValidationResults => {
-                  // keep any previous errors and infos for untouched keys,
-                  // which probably came from a submit
-                  const nextValidationResults = {
-                    errors: { ...prevValidationResults.errors, ...nextErrors },
-                    infos: { ...prevValidationResults.infos, ...nextInfos },
-                  };
-                  if (onValidate) onValidate(nextValidationResults);
-                  return nextValidationResults;
-                });
-              }
+            ? () =>
+                setPendingValidation(
+                  pendingValidation ? [...pendingValidation, name] : [name],
+                )
+            : undefined,
+        onChange:
+          validateOn === 'change'
+            ? () =>
+                setPendingValidation(
+                  pendingValidation ? [...pendingValidation, name] : [name],
+                )
             : undefined,
       };
     };
@@ -262,9 +345,10 @@ const Form = forwardRef(
         ref={ref}
         {...rest}
         onReset={event => {
+          setPendingValidation(undefined);
           if (!valueProp) {
             setValueState(defaultValue);
-            if (onChange) onChange(defaultValue);
+            if (onChange) onChange(defaultValue, { touched: defaultTouched });
           }
           setTouched(defaultTouched);
           setValidationResults(defaultValidationResults);
@@ -281,6 +365,7 @@ const Form = forwardRef(
           // if the validation fails. And, we assume a javascript action handler
           // otherwise.
           event.preventDefault();
+          setPendingValidation(undefined);
           const [nextErrors, nextInfos] = validate(
             Object.entries(validations.current),
             value,

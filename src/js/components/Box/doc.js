@@ -2,12 +2,15 @@ import { describe, PropTypes } from 'react-desc';
 
 import {
   backgroundDoc,
-  getAvailableAtBadge,
+  elevationPropType,
   genericProps,
+  getBorderPropType,
   hoverIndicatorPropType,
   padPropType,
-  themeDocUtils,
-} from '../../utils';
+  roundPropType,
+} from '../../utils/prop-types';
+import { getAvailableAtBadge } from '../../utils/mixins';
+import { themeDocUtils } from '../../utils/themeDocUtils';
 
 export const OVERFLOW_VALUES = ['auto', 'hidden', 'scroll', 'visible'];
 
@@ -32,42 +35,7 @@ const ANIMATION_SHAPE = PropTypes.shape({
   size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge']),
 });
 
-const BORDER_SHAPE = PropTypes.shape({
-  color: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      dark: PropTypes.string,
-      light: PropTypes.string,
-    }),
-  ]),
-  side: PropTypes.oneOf([
-    'top',
-    'left',
-    'bottom',
-    'right',
-    'start',
-    'end',
-    'horizontal',
-    'vertical',
-    'all',
-    'between',
-  ]),
-  size: PropTypes.oneOfType([
-    PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge']),
-    PropTypes.string,
-  ]),
-  style: PropTypes.oneOf([
-    'solid',
-    'dashed',
-    'dotted',
-    'double',
-    'groove',
-    'ridge',
-    'inset',
-    'outset',
-    'hidden',
-  ]).defaultValue('solid'),
-});
+const BORDER_SHAPE = getBorderPropType({ includeBetween: true });
 
 // if you update values here, make sure to update in Drop/doc too.
 const overflowPropType = PropTypes.oneOfType([
@@ -81,7 +49,7 @@ const overflowPropType = PropTypes.oneOfType([
 
 export const doc = Box => {
   const DocumentedBox = describe(Box)
-    .availableAt(getAvailableAtBadge('Box'))
+    .availableAt(getAvailableAtBadge('Box', 'Layout'))
     .description(
       `A container that lays out its contents in one direction. Box
       provides CSS flexbox capabilities for layout, as well as general
@@ -168,10 +136,7 @@ export const doc = Box => {
     ])
       .description('The orientation to layout the child components in.')
       .defaultValue('column'),
-    elevation: PropTypes.oneOfType([
-      PropTypes.oneOf(['none', 'xsmall', 'small', 'medium', 'large', 'xlarge']),
-      PropTypes.string,
-    ])
+    elevation: elevationPropType
       .description(
         `Elevated height above the underlying context, indicated
         via a drop shadow.`,
@@ -213,7 +178,7 @@ export const doc = Box => {
     ]).description(`The amount of spacing between child elements. This
         should not be used in conjunction with 'wrap' as the gap elements
         will not wrap gracefully. If a child is a Fragment,
-        Box will not add a gap between the choldren of the Fragment.`),
+        Box will not add a gap between the children of the Fragment.`),
     height: PropTypes.oneOfType([
       PropTypes.oneOf([
         'xxsmall',
@@ -281,29 +246,7 @@ export const doc = Box => {
       sizes should be scaled for mobile environments.`,
       )
       .defaultValue(true),
-    round: PropTypes.oneOfType([
-      PropTypes.bool,
-      PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge', 'full']),
-      PropTypes.string,
-      PropTypes.shape({
-        corner: PropTypes.oneOf([
-          'top',
-          'left',
-          'bottom',
-          'right',
-          'top-left',
-          'top-right',
-          'bottom-left',
-          'bottom-right',
-        ]),
-        size: PropTypes.oneOfType([
-          PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge']),
-          PropTypes.string,
-        ]),
-      }),
-    ])
-      .description('How much to round the corners.')
-      .defaultValue(false),
+    round: roundPropType,
     tag: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).description(
       `The DOM tag to use for the element. NOTE: This is deprecated in favor
 of indicating the DOM tag via the 'as' property.`,
@@ -323,6 +266,18 @@ of indicating the DOM tag via the 'as' property.`,
       ]),
       PropTypes.string,
       PropTypes.shape({
+        width: PropTypes.oneOfType([
+          PropTypes.oneOf([
+            'xxsmall',
+            'xsmall',
+            'small',
+            'medium',
+            'large',
+            'xlarge',
+            'xxlarge',
+          ]),
+          PropTypes.string,
+        ]),
         min: PropTypes.oneOfType([
           PropTypes.oneOf([
             'xxsmall',

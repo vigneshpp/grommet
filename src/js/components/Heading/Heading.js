@@ -2,24 +2,20 @@ import React, { forwardRef } from 'react';
 
 import { StyledHeading } from './StyledHeading';
 
-const Heading = forwardRef((props, ref) => {
-  const {
-    color, // munged to avoid styled-components putting it in the DOM
-    level,
-    ...rest
-  } = props;
-
+const Heading = forwardRef((
+  { color, fill, level, ...rest },
+  ref, // munged to avoid styled-components putting it in the DOM
+) => (
   // enforce level to be a number
-  return (
-    <StyledHeading
-      as={`h${level}`}
-      colorProp={color}
-      level={+level}
-      {...rest}
-      ref={ref}
-    />
-  );
-});
+  <StyledHeading
+    as={`h${level}`}
+    colorProp={color}
+    fillProp={fill}
+    level={+level}
+    {...rest}
+    ref={ref}
+  />
+));
 
 Heading.displayName = 'Heading';
 Heading.defaultProps = {

@@ -3,7 +3,7 @@ A single field in a form. FormField wraps an input component with
       a label, help, and/or error messaging. It typically contains an input
       control like TextInput, TextArea, Select, etc.
 
-[![](https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png)](https://storybook.grommet.io/?selectedKind=FormField&full=0&addons=0&stories=1&panelRight=0) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=/formfield&module=%2Fsrc%2FFormField.js)
+[![](https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png)](https://storybook.grommet.io/?selectedKind=Input-FormField&full=0&stories=1&panelRight=0) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=/formfield&module=%2Fsrc%2FFormField.js)
 ## Usage
 
 ```javascript
@@ -380,6 +380,109 @@ Defaults to
 status-critical
 ```
 
+**formField.error.container**
+
+Any valid Box props for the container surrounding the error 
+    message and icon. Expects `object`.
+
+Defaults to
+
+```
+undefined
+```
+
+**formField.error.icon**
+
+An icon placed in a row with the error message. Expects `React.Element`.
+
+Defaults to
+
+```
+undefined
+```
+
+**formField.error.size**
+
+The size of the error message to be displayed.
+     The default size is medium. Expects `string`.
+
+Defaults to
+
+```
+medium
+```
+
+**formField.error.size.xsmall**
+
+The size of a 'xsmall' error message. Expects `string`.
+
+Defaults to
+
+```
+12px
+```
+
+**formField.error.size.small**
+
+The size of a 'small' error message. Expects `string`.
+
+Defaults to
+
+```
+14px
+```
+
+**formField.error.size.medium**
+
+The size of a 'medium' error message. Expects `string`.
+
+Defaults to
+
+```
+18px
+```
+
+**formField.error.size.large**
+
+The size of a 'large' error message. Expects `string`.
+
+Defaults to
+
+```
+22px
+```
+
+**formField.error.size.xlarge**
+
+The size of a 'xlarge' error message. Expects `string`.
+
+Defaults to
+
+```
+26px
+```
+
+**formField.info.container**
+
+Any valid Box props for the container surrounding the info 
+    message and icon. Expects `object`.
+
+Defaults to
+
+```
+undefined
+```
+
+**formField.info.icon**
+
+An icon placed in a row with the info message. Expects `React.Element`.
+
+Defaults to
+
+```
+undefined
+```
+
 **formField.error.margin**
 
 The margin used for the FormField error. Expects `string | object`.
@@ -478,6 +581,20 @@ Defaults to
 
 ```
 { vertical: 'xsmall', horizontal: 'small' }
+```
+
+**formField.label.requiredIndicator**
+
+Whether an asterisk (*) indicating that an input is required 
+    should be displayed adjacent to the FormField's label. If providing a 
+    custom element, for accessibility it is recommended that you include 
+    an a11yTitle of "required" to assist screen readers. If using "true", the 
+    a11yTitle is automatically applied. Expects `boolean | element | string`.
+
+Defaults to
+
+```
+undefined
 ```
 
 **formField.margin**

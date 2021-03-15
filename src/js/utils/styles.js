@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 import { backgroundStyle } from './background';
 import { normalizeColor } from './colors';
+import { getBreakpointStyle } from './responsive';
 import { breakpointStyle, parseMetricToNum } from './mixins';
 
 export const baseStyle = css`
@@ -259,6 +260,47 @@ const focusStyles = (props, { forceOutline, justBorder } = {}) => {
   return ''; // defensive
 };
 
+const unfocusStyles = (props, { forceOutline, justBorder } = {}) => {
+  const {
+    theme: {
+      global: { focus },
+    },
+  } = props;
+  if (!focus || (forceOutline && !focus.outline)) {
+    const color = normalizeColor('focus', props.theme);
+    if (color) return `outline: none;`;
+    return ''; // native
+  }
+  if (focus.outline && (!focus.border || !justBorder)) {
+    if (typeof focus.outline === 'object') {
+      return `
+        outline-offset: 0px;
+        outline: none;
+      `;
+    }
+    return `outline: none;`;
+  }
+  if (focus.shadow && (!focus.border || !justBorder)) {
+    if (typeof focus.shadow === 'object') {
+      return `
+        outline: none;
+        box-shadow: none;
+      `;
+    }
+    return `
+      outline: none;
+      box-shadow: none;
+    `;
+  }
+  if (focus.border) {
+    return `
+      outline: none;
+      border-color: none;
+    `;
+  }
+  return ''; // defensive
+};
+
 // focus also supports clickable elements inside svg
 export const focusStyle = ({
   forceOutline,
@@ -278,6 +320,37 @@ export const focusStyle = ({
     ${focusStyles(props)}
   }`}
   ${props => focusStyles(props, { forceOutline, justBorder })}
+  ${!forceOutline &&
+    `
+  ::-moz-focus-inner {
+    border: 0;
+  }
+  `}
+`;
+
+// This is placed next to focusStyle for easy maintainability
+// of code since changes to focusStyle should be reflected in
+// unfocusStyle as well. However, this function is only being used
+// by List for an iterim state. It is not recommended to rely on
+// this function for other components.
+export const unfocusStyle = ({
+  forceOutline,
+  justBorder,
+  skipSvgChildren,
+} = {}) => css`
+  ${props =>
+    !skipSvgChildren &&
+    `
+  > circle,
+  > ellipse,
+  > line,
+  > path,
+  > polygon,
+  > polyline,
+  > rect {
+    ${unfocusStyles(props)}
+  }`}
+  ${props => unfocusStyles(props, { forceOutline, justBorder })}
   ${!forceOutline &&
     `
   ::-moz-focus-inner {
@@ -389,7 +462,9 @@ export const inputStyle = css`
         props.theme.global.input.font.weight};
     `} margin: 0;
   ${props => props.size && inputSizeStyle(props)}
-  ${props => props.focus && !props.plain && focusStyle()};
+  &:focus {
+    ${props => (!props.plain || props.focusIndicator) && focusStyle()};
+  }
   ${controlBorderStyle}
   ${placeholderStyle}
 
@@ -406,6 +481,8 @@ export const inputStyle = css`
   &::-moz-placeholder { // FF 19+
     opacity: 1;
   }
+
+  ${props => props.theme.global.input.extend}
 `;
 
 export const overflowStyle = overflowProp => {
@@ -458,4 +535,216 @@ export const sizeStyle = (name, value, theme) => css`
 export const plainInputStyle = css`
   outline: none;
   border: none;
+`;
+
+// CSS for this sub-object in the theme
+export const kindPartStyles = (obj, theme, colorValue) => {
+  const styles = [];
+  if (obj.padding || obj.pad) {
+    // button uses `padding` but other components use Grommet `pad`
+    const pad = obj.padding || obj.pad;
+    if (pad.vertical || pad.horizontal)
+      styles.push(
+        `padding: ${theme.global.edgeSize[pad.vertical] ||
+          pad.vertical ||
+          0} ${theme.global.edgeSize[pad.horizontal] || pad.horizontal || 0};`,
+      );
+    else styles.push(`padding: ${theme.global.edgeSize[pad] || pad || 0};`);
+  }
+  if (obj.background)
+    styles.push(
+      backgroundStyle(
+        colorValue || obj.background,
+        theme,
+        obj.color ||
+          (Object.prototype.hasOwnProperty.call(obj, 'color') &&
+          obj.color === undefined
+            ? false
+            : undefined),
+      ),
+    );
+  else if (obj.color)
+    styles.push(`color: ${normalizeColor(obj.color, theme)};`);
+  if (obj.border) {
+    if (obj.border.width)
+      styles.push(css`
+        border-style: solid;
+        border-width: ${obj.border.width};
+      `);
+    if (obj.border.color)
+      styles.push(css`
+        border-color: ${normalizeColor(
+          (!obj.background && colorValue) || obj.border.color || 'border',
+          theme,
+        )};
+      `);
+    if (obj.border.radius)
+      styles.push(css`
+        border-radius: ${obj.border.radius};
+      `);
+  } else if (obj.border === false) styles.push('border: none;');
+  if (colorValue && !obj.border && !obj.background)
+    styles.push(`color: ${normalizeColor(colorValue, theme)};`);
+  if (obj.font) {
+    if (obj.font.size) {
+      styles.push(
+        `font-size: ${theme.text[obj.font.size].size || obj.font.size};`,
+      );
+    }
+    if (obj.font.height) {
+      styles.push(`line-height: ${obj.font.height};`);
+    }
+    if (obj.font.weight) {
+      styles.push(`font-weight: ${obj.font.weight};`);
+    }
+  }
+  if (obj.opacity) {
+    const opacity =
+      obj.opacity === true
+        ? theme.global.opacity.medium
+        : theme.global.opacity[obj.opacity] || obj.opacity;
+    styles.push(`opacity: ${opacity};`);
+  }
+  if (obj.extend) styles.push(obj.extend);
+  return styles;
+};
+
+const ROUND_MAP = {
+  full: '100%',
+};
+
+export const roundStyle = (data, responsive, theme) => {
+  const breakpoint = getBreakpointStyle(theme, theme.box.responsiveBreakpoint);
+  const styles = [];
+  if (typeof data === 'object') {
+    const size =
+      ROUND_MAP[data.size] ||
+      theme.global.edgeSize[data.size || 'medium'] ||
+      data.size;
+    const responsiveSize =
+      responsive &&
+      breakpoint &&
+      breakpoint.edgeSize[data.size] &&
+      (breakpoint.edgeSize[data.size] || data.size);
+    if (data.corner === 'top') {
+      styles.push(css`
+        border-top-left-radius: ${size};
+        border-top-right-radius: ${size};
+      `);
+      if (responsiveSize) {
+        styles.push(
+          breakpointStyle(
+            breakpoint,
+            `
+          border-top-left-radius: ${responsiveSize};
+          border-top-right-radius: ${responsiveSize};
+        `,
+          ),
+        );
+      }
+    } else if (data.corner === 'bottom') {
+      styles.push(css`
+        border-bottom-left-radius: ${size};
+        border-bottom-right-radius: ${size};
+      `);
+      if (responsiveSize) {
+        styles.push(
+          breakpointStyle(
+            breakpoint,
+            `
+          border-bottom-left-radius: ${responsiveSize};
+          border-bottom-right-radius: ${responsiveSize};
+        `,
+          ),
+        );
+      }
+    } else if (data.corner === 'left') {
+      styles.push(css`
+        border-top-left-radius: ${size};
+        border-bottom-left-radius: ${size};
+      `);
+      if (responsiveSize) {
+        styles.push(
+          breakpointStyle(
+            breakpoint,
+            `
+          border-top-left-radius: ${responsiveSize};
+          border-bottom-left-radius: ${responsiveSize};
+        `,
+          ),
+        );
+      }
+    } else if (data.corner === 'right') {
+      styles.push(css`
+        border-top-right-radius: ${size};
+        border-bottom-right-radius: ${size};
+      `);
+      if (responsiveSize) {
+        styles.push(
+          breakpointStyle(
+            breakpoint,
+            `
+          border-top-right-radius: ${responsiveSize};
+          border-bottom-right-radius: ${responsiveSize};
+        `,
+          ),
+        );
+      }
+    } else if (data.corner) {
+      styles.push(css`
+        border-${data.corner}-radius: ${size};
+      `);
+      if (responsiveSize) {
+        styles.push(
+          breakpointStyle(
+            breakpoint,
+            `
+          border-${data.corner}-radius: ${responsiveSize};
+        `,
+          ),
+        );
+      }
+    } else {
+      styles.push(css`
+        border-radius: ${size};
+      `);
+      if (responsiveSize) {
+        styles.push(
+          breakpointStyle(
+            breakpoint,
+            `
+          border-radius: ${responsiveSize};
+        `,
+          ),
+        );
+      }
+    }
+  } else {
+    const size = data === true ? 'medium' : data;
+    styles.push(css`
+      border-radius: ${ROUND_MAP[size] || theme.global.edgeSize[size] || size};
+    `);
+    const responsiveSize = breakpoint && breakpoint.edgeSize[size];
+    if (responsiveSize) {
+      styles.push(
+        breakpointStyle(
+          breakpoint,
+          `
+        border-radius: ${responsiveSize};
+      `,
+        ),
+      );
+    }
+  }
+  return styles;
+};
+
+const TEXT_ALIGN_MAP = {
+  center: 'center',
+  end: 'right',
+  start: 'left',
+};
+
+export const textAlignStyle = css`
+  text-align: ${props => TEXT_ALIGN_MAP[props.textAlign]};
 `;

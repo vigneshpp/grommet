@@ -469,54 +469,44 @@ exports[`Tabs Tab 1`] = `
 }
 
 <div
-  className="c0"
+  class="c0"
 >
   <div
-    className="c1 "
+    class="c1 "
     role="tablist"
   >
     <div
-      className="c2 "
+      class="c2 "
     >
       <button
-        aria-expanded={true}
-        aria-selected={true}
-        className="c3"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseOut={[Function]}
-        onMouseOver={[Function]}
+        aria-expanded="true"
+        aria-selected="true"
+        class="c3"
         role="tab"
         type="button"
       >
         <div
-          className="c4 c5"
+          class="c4 c5"
         >
           <span
-            className="c6"
+            class="c6"
           >
             Tab 1
           </span>
         </div>
       </button>
       <button
-        aria-expanded={false}
-        aria-selected={false}
-        className="c3"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseOut={[Function]}
-        onMouseOver={[Function]}
+        aria-expanded="false"
+        aria-selected="false"
+        class="c3"
         role="tab"
         type="button"
       >
         <div
-          className="c7 c5"
+          class="c7 c5"
         >
           <span
-            className="c8"
+            class="c8"
           >
             Tab 2
           </span>
@@ -525,7 +515,7 @@ exports[`Tabs Tab 1`] = `
     </div>
     <div
       aria-label="Tab 1 Tab Contents"
-      className="c9"
+      class="c9"
       role="tabpanel"
     >
       Tab body 1
@@ -747,54 +737,44 @@ exports[`Tabs alignControls 1`] = `
 }
 
 <div
-  className="c0"
+  class="c0"
 >
   <div
-    className="c1 "
+    class="c1 "
     role="tablist"
   >
     <div
-      className="c2 "
+      class="c2 "
     >
       <button
-        aria-expanded={true}
-        aria-selected={true}
-        className="c3"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseOut={[Function]}
-        onMouseOver={[Function]}
+        aria-expanded="true"
+        aria-selected="true"
+        class="c3"
         role="tab"
         type="button"
       >
         <div
-          className="c4 c5"
+          class="c4 c5"
         >
           <span
-            className="c6"
+            class="c6"
           >
             Tab 1
           </span>
         </div>
       </button>
       <button
-        aria-expanded={false}
-        aria-selected={false}
-        className="c3"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseOut={[Function]}
-        onMouseOver={[Function]}
+        aria-expanded="false"
+        aria-selected="false"
+        class="c3"
         role="tab"
         type="button"
       >
         <div
-          className="c7 c5"
+          class="c7 c5"
         >
           <span
-            className="c8"
+            class="c8"
           >
             Tab 2
           </span>
@@ -803,7 +783,7 @@ exports[`Tabs alignControls 1`] = `
     </div>
     <div
       aria-label="Tab 1 Tab Contents"
-      className="c9"
+      class="c9"
       role="tabpanel"
     >
       Tab body 1
@@ -1076,27 +1056,27 @@ exports[`Tabs change to second tab 1`] = `
 
 exports[`Tabs change to second tab 2`] = `
 <div
-  class="StyledGrommet-sc-19lkkz7-0 lcXYAf"
+  class="StyledGrommet-sc-19lkkz7-0 djOnwZ"
 >
   <div
-    class="StyledBox-sc-13pk1d4-0 bFwQzJ StyledTabs-a4fwxl-2 gjpnHh"
+    class="StyledBox-sc-13pk1d4-0 dYebPD StyledTabs-a4fwxl-2 jQLYpX"
     role="tablist"
   >
     <div
-      class="StyledBox-sc-13pk1d4-0 ewBYLf StyledTabs__StyledTabsHeader-a4fwxl-0 fXJmvC"
+      class="StyledBox-sc-13pk1d4-0 hiXrYh StyledTabs__StyledTabsHeader-a4fwxl-0 gwFYfs"
     >
       <button
         aria-expanded="false"
         aria-selected="false"
-        class="StyledButton-sc-323bzc-0 jFJBys"
+        class="StyledButton-sc-323bzc-0 ebqXLG"
         role="tab"
         type="button"
       >
         <div
-          class="StyledBox-sc-13pk1d4-0 iwzLzf StyledTab-sc-1nnwnsb-0 eWIFpw"
+          class="StyledBox-sc-13pk1d4-0 gdixjB StyledTab-sc-1nnwnsb-0 kVEPVO"
         >
           <span
-            class="StyledText-sc-1sadyjn-0 iBFVwz"
+            class="StyledText-sc-1sadyjn-0 gImgGD"
           >
             Tab 1
           </span>
@@ -1105,15 +1085,15 @@ exports[`Tabs change to second tab 2`] = `
       <button
         aria-expanded="true"
         aria-selected="true"
-        class="StyledButton-sc-323bzc-0 jFJBys"
+        class="StyledButton-sc-323bzc-0 ebqXLG"
         role="tab"
         type="button"
       >
         <div
-          class="StyledBox-sc-13pk1d4-0 fQtdUH StyledTab-sc-1nnwnsb-0 eWIFpw"
+          class="StyledBox-sc-13pk1d4-0 cLWgPR StyledTab-sc-1nnwnsb-0 kVEPVO"
         >
           <span
-            class="StyledText-sc-1sadyjn-0 kJdDnV"
+            class="StyledText-sc-1sadyjn-0 gWegOF"
           >
             Tab 2
           </span>
@@ -1122,7 +1102,7 @@ exports[`Tabs change to second tab 2`] = `
     </div>
     <div
       aria-label="Tab 2 Tab Contents"
-      class="StyledTabs__StyledTabPanel-a4fwxl-1 fxssrZ"
+      class="StyledTabs__StyledTabPanel-a4fwxl-1 ixxRXT"
       role="tabpanel"
     >
       Tab body 2
@@ -1326,29 +1306,24 @@ exports[`Tabs complex title 1`] = `
 }
 
 <div
-  className="c0"
+  class="c0"
 >
   <div
-    className="c1 "
+    class="c1 "
     role="tablist"
   >
     <div
-      className="c2 "
+      class="c2 "
     >
       <button
-        aria-expanded={true}
-        aria-selected={true}
-        className="c3"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseOut={[Function]}
-        onMouseOver={[Function]}
+        aria-expanded="true"
+        aria-selected="true"
+        class="c3"
         role="tab"
         type="button"
       >
         <div
-          className="c4 c5"
+          class="c4 c5"
         >
           <div>
             Tab 1
@@ -1356,19 +1331,14 @@ exports[`Tabs complex title 1`] = `
         </div>
       </button>
       <button
-        aria-expanded={false}
-        aria-selected={false}
-        className="c3"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseOut={[Function]}
-        onMouseOver={[Function]}
+        aria-expanded="false"
+        aria-selected="false"
+        class="c3"
         role="tab"
         type="button"
       >
         <div
-          className="c6 c5"
+          class="c6 c5"
         >
           <div>
             Tab 2
@@ -1378,7 +1348,7 @@ exports[`Tabs complex title 1`] = `
     </div>
     <div
       aria-label="1 Tab Contents"
-      className="c7"
+      class="c7"
       role="tabpanel"
     >
       Tab body 1
@@ -1536,35 +1506,30 @@ exports[`Tabs no Tab 1`] = `
 }
 
 <div
-  className="c0"
+  class="c0"
 >
   <div
-    className="c1 "
+    class="c1 "
     role="tablist"
   >
     <div
-      className="c2 "
+      class="c2 "
     >
       <button
-        aria-expanded={true}
-        aria-selected={true}
-        className="c3"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseOut={[Function]}
-        onMouseOver={[Function]}
+        aria-expanded="true"
+        aria-selected="true"
+        class="c3"
         role="tab"
         type="button"
       >
         <div
-          className="c4 c5"
+          class="c4 c5"
         />
       </button>
     </div>
     <div
       aria-label="1 Tab Contents"
-      className="c6"
+      class="c6"
       role="tabpanel"
     />
   </div>
@@ -1835,27 +1800,27 @@ exports[`Tabs set on hover 1`] = `
 
 exports[`Tabs set on hover 2`] = `
 <div
-  class="StyledGrommet-sc-19lkkz7-0 lcXYAf"
+  class="StyledGrommet-sc-19lkkz7-0 djOnwZ"
 >
   <div
-    class="StyledBox-sc-13pk1d4-0 bFwQzJ StyledTabs-a4fwxl-2 gjpnHh"
+    class="StyledBox-sc-13pk1d4-0 dYebPD StyledTabs-a4fwxl-2 jQLYpX"
     role="tablist"
   >
     <div
-      class="StyledBox-sc-13pk1d4-0 ewBYLf StyledTabs__StyledTabsHeader-a4fwxl-0 fXJmvC"
+      class="StyledBox-sc-13pk1d4-0 hiXrYh StyledTabs__StyledTabsHeader-a4fwxl-0 gwFYfs"
     >
       <button
         aria-expanded="true"
         aria-selected="true"
-        class="StyledButton-sc-323bzc-0 jFJBys"
+        class="StyledButton-sc-323bzc-0 ebqXLG"
         role="tab"
         type="button"
       >
         <div
-          class="StyledBox-sc-13pk1d4-0 fQtdUH StyledTab-sc-1nnwnsb-0 eWIFpw"
+          class="StyledBox-sc-13pk1d4-0 cLWgPR StyledTab-sc-1nnwnsb-0 kVEPVO"
         >
           <span
-            class="StyledText-sc-1sadyjn-0 kJdDnV"
+            class="StyledText-sc-1sadyjn-0 gWegOF"
           >
             Tab 1
           </span>
@@ -1864,15 +1829,15 @@ exports[`Tabs set on hover 2`] = `
       <button
         aria-expanded="false"
         aria-selected="false"
-        class="StyledButton-sc-323bzc-0 jFJBys"
+        class="StyledButton-sc-323bzc-0 ebqXLG"
         role="tab"
         type="button"
       >
         <div
-          class="StyledBox-sc-13pk1d4-0 iwzLzf StyledTab-sc-1nnwnsb-0 eWIFpw"
+          class="StyledBox-sc-13pk1d4-0 gdixjB StyledTab-sc-1nnwnsb-0 kVEPVO"
         >
           <span
-            class="StyledText-sc-1sadyjn-0 iBFVwz"
+            class="StyledText-sc-1sadyjn-0 gImgGD"
           >
             Tab 2
           </span>
@@ -1881,7 +1846,7 @@ exports[`Tabs set on hover 2`] = `
     </div>
     <div
       aria-label="Tab 1 Tab Contents"
-      class="StyledTabs__StyledTabPanel-a4fwxl-1 fxssrZ"
+      class="StyledTabs__StyledTabPanel-a4fwxl-1 ixxRXT"
       role="tabpanel"
     >
       Tab body 1
@@ -1892,27 +1857,27 @@ exports[`Tabs set on hover 2`] = `
 
 exports[`Tabs set on hover 3`] = `
 <div
-  class="StyledGrommet-sc-19lkkz7-0 lcXYAf"
+  class="StyledGrommet-sc-19lkkz7-0 djOnwZ"
 >
   <div
-    class="StyledBox-sc-13pk1d4-0 bFwQzJ StyledTabs-a4fwxl-2 gjpnHh"
+    class="StyledBox-sc-13pk1d4-0 dYebPD StyledTabs-a4fwxl-2 jQLYpX"
     role="tablist"
   >
     <div
-      class="StyledBox-sc-13pk1d4-0 ewBYLf StyledTabs__StyledTabsHeader-a4fwxl-0 fXJmvC"
+      class="StyledBox-sc-13pk1d4-0 hiXrYh StyledTabs__StyledTabsHeader-a4fwxl-0 gwFYfs"
     >
       <button
         aria-expanded="true"
         aria-selected="true"
-        class="StyledButton-sc-323bzc-0 jFJBys"
+        class="StyledButton-sc-323bzc-0 ebqXLG"
         role="tab"
         type="button"
       >
         <div
-          class="StyledBox-sc-13pk1d4-0 fQtdUH StyledTab-sc-1nnwnsb-0 eWIFpw"
+          class="StyledBox-sc-13pk1d4-0 cLWgPR StyledTab-sc-1nnwnsb-0 kVEPVO"
         >
           <span
-            class="StyledText-sc-1sadyjn-0 kJdDnV"
+            class="StyledText-sc-1sadyjn-0 gWegOF"
           >
             Tab 1
           </span>
@@ -1921,15 +1886,15 @@ exports[`Tabs set on hover 3`] = `
       <button
         aria-expanded="false"
         aria-selected="false"
-        class="StyledButton-sc-323bzc-0 jFJBys"
+        class="StyledButton-sc-323bzc-0 ebqXLG"
         role="tab"
         type="button"
       >
         <div
-          class="StyledBox-sc-13pk1d4-0 fQtdUH StyledTab-sc-1nnwnsb-0 eWIFpw"
+          class="StyledBox-sc-13pk1d4-0 cLWgPR StyledTab-sc-1nnwnsb-0 kVEPVO"
         >
           <span
-            class="StyledText-sc-1sadyjn-0 jvLdFN"
+            class="StyledText-sc-1sadyjn-0 jpRlYh"
           >
             Tab 2
           </span>
@@ -1938,7 +1903,7 @@ exports[`Tabs set on hover 3`] = `
     </div>
     <div
       aria-label="Tab 1 Tab Contents"
-      class="StyledTabs__StyledTabPanel-a4fwxl-1 fxssrZ"
+      class="StyledTabs__StyledTabPanel-a4fwxl-1 ixxRXT"
       role="tabpanel"
     >
       Tab body 1
@@ -1949,27 +1914,27 @@ exports[`Tabs set on hover 3`] = `
 
 exports[`Tabs set on hover 4`] = `
 <div
-  class="StyledGrommet-sc-19lkkz7-0 lcXYAf"
+  class="StyledGrommet-sc-19lkkz7-0 djOnwZ"
 >
   <div
-    class="StyledBox-sc-13pk1d4-0 bFwQzJ StyledTabs-a4fwxl-2 gjpnHh"
+    class="StyledBox-sc-13pk1d4-0 dYebPD StyledTabs-a4fwxl-2 jQLYpX"
     role="tablist"
   >
     <div
-      class="StyledBox-sc-13pk1d4-0 ewBYLf StyledTabs__StyledTabsHeader-a4fwxl-0 fXJmvC"
+      class="StyledBox-sc-13pk1d4-0 hiXrYh StyledTabs__StyledTabsHeader-a4fwxl-0 gwFYfs"
     >
       <button
         aria-expanded="true"
         aria-selected="true"
-        class="StyledButton-sc-323bzc-0 jFJBys"
+        class="StyledButton-sc-323bzc-0 ebqXLG"
         role="tab"
         type="button"
       >
         <div
-          class="StyledBox-sc-13pk1d4-0 fQtdUH StyledTab-sc-1nnwnsb-0 eWIFpw"
+          class="StyledBox-sc-13pk1d4-0 cLWgPR StyledTab-sc-1nnwnsb-0 kVEPVO"
         >
           <span
-            class="StyledText-sc-1sadyjn-0 kJdDnV"
+            class="StyledText-sc-1sadyjn-0 gWegOF"
           >
             Tab 1
           </span>
@@ -1978,15 +1943,15 @@ exports[`Tabs set on hover 4`] = `
       <button
         aria-expanded="false"
         aria-selected="false"
-        class="StyledButton-sc-323bzc-0 jFJBys"
+        class="StyledButton-sc-323bzc-0 ebqXLG"
         role="tab"
         type="button"
       >
         <div
-          class="StyledBox-sc-13pk1d4-0 fQtdUH StyledTab-sc-1nnwnsb-0 eWIFpw"
+          class="StyledBox-sc-13pk1d4-0 cLWgPR StyledTab-sc-1nnwnsb-0 kVEPVO"
         >
           <span
-            class="StyledText-sc-1sadyjn-0 jvLdFN"
+            class="StyledText-sc-1sadyjn-0 jpRlYh"
           >
             Tab 2
           </span>
@@ -1995,7 +1960,7 @@ exports[`Tabs set on hover 4`] = `
     </div>
     <div
       aria-label="Tab 1 Tab Contents"
-      class="StyledTabs__StyledTabPanel-a4fwxl-1 fxssrZ"
+      class="StyledTabs__StyledTabPanel-a4fwxl-1 ixxRXT"
       role="tabpanel"
     >
       Tab body 1
@@ -2006,27 +1971,27 @@ exports[`Tabs set on hover 4`] = `
 
 exports[`Tabs set on hover 5`] = `
 <div
-  class="StyledGrommet-sc-19lkkz7-0 lcXYAf"
+  class="StyledGrommet-sc-19lkkz7-0 djOnwZ"
 >
   <div
-    class="StyledBox-sc-13pk1d4-0 bFwQzJ StyledTabs-a4fwxl-2 gjpnHh"
+    class="StyledBox-sc-13pk1d4-0 dYebPD StyledTabs-a4fwxl-2 jQLYpX"
     role="tablist"
   >
     <div
-      class="StyledBox-sc-13pk1d4-0 ewBYLf StyledTabs__StyledTabsHeader-a4fwxl-0 fXJmvC"
+      class="StyledBox-sc-13pk1d4-0 hiXrYh StyledTabs__StyledTabsHeader-a4fwxl-0 gwFYfs"
     >
       <button
         aria-expanded="true"
         aria-selected="true"
-        class="StyledButton-sc-323bzc-0 jFJBys"
+        class="StyledButton-sc-323bzc-0 ebqXLG"
         role="tab"
         type="button"
       >
         <div
-          class="StyledBox-sc-13pk1d4-0 fQtdUH StyledTab-sc-1nnwnsb-0 eWIFpw"
+          class="StyledBox-sc-13pk1d4-0 cLWgPR StyledTab-sc-1nnwnsb-0 kVEPVO"
         >
           <span
-            class="StyledText-sc-1sadyjn-0 kJdDnV"
+            class="StyledText-sc-1sadyjn-0 gWegOF"
           >
             Tab 1
           </span>
@@ -2035,15 +2000,15 @@ exports[`Tabs set on hover 5`] = `
       <button
         aria-expanded="false"
         aria-selected="false"
-        class="StyledButton-sc-323bzc-0 jFJBys"
+        class="StyledButton-sc-323bzc-0 ebqXLG"
         role="tab"
         type="button"
       >
         <div
-          class="StyledBox-sc-13pk1d4-0 iwzLzf StyledTab-sc-1nnwnsb-0 eWIFpw"
+          class="StyledBox-sc-13pk1d4-0 gdixjB StyledTab-sc-1nnwnsb-0 kVEPVO"
         >
           <span
-            class="StyledText-sc-1sadyjn-0 iBFVwz"
+            class="StyledText-sc-1sadyjn-0 gImgGD"
           >
             Tab 2
           </span>
@@ -2052,7 +2017,7 @@ exports[`Tabs set on hover 5`] = `
     </div>
     <div
       aria-label="Tab 1 Tab Contents"
-      class="StyledTabs__StyledTabPanel-a4fwxl-1 fxssrZ"
+      class="StyledTabs__StyledTabPanel-a4fwxl-1 ixxRXT"
       role="tabpanel"
     >
       Tab body 1
@@ -2650,7 +2615,6 @@ exports[`Tabs should apply custom theme disabled style when theme.button.default
         aria-expanded="true"
         aria-selected="true"
         class="c3"
-        kind="default"
         role="tab"
         type="button"
       >
@@ -2669,7 +2633,6 @@ exports[`Tabs should apply custom theme disabled style when theme.button.default
         aria-selected="false"
         class="c7"
         disabled=""
-        kind="default"
         role="tab"
         type="button"
       >
@@ -3189,6 +3152,291 @@ exports[`Tabs should style as disabled 1`] = `
 </div>
 `;
 
+exports[`Tabs styled component should change tab color when active 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border-bottom: solid 2px #000000;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-bottom: 6px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border-bottom: solid 2px #7D4CDB;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-bottom: 6px;
+}
+
+.c3 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  color: inherit;
+  outline: none;
+  border: none;
+  padding: 0;
+  text-align: inherit;
+}
+
+.c3:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c3:focus > circle,
+.c3:focus > ellipse,
+.c3:focus > line,
+.c3:focus > path,
+.c3:focus > polygon,
+.c3:focus > polyline,
+.c3:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c3:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c10 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+}
+
+.c7 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #7D4CDB;
+}
+
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c6 {
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.c6:hover {
+  color: #000000;
+}
+
+.c11 {
+  min-height: 0;
+}
+
+.c8 {
+  background: blue;
+}
+
+.c4 {
+  background: green;
+}
+
+@media only screen and (max-width:768px) {
+  .c9 {
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c9 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c9 {
+    border-bottom: solid 2px #000000;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c9 {
+    padding-bottom: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c5 {
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c5 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c5 {
+    border-bottom: solid 2px #7D4CDB;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c5 {
+    padding-bottom: 3px;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1 "
+    role="tablist"
+  >
+    <div
+      class="c2 "
+    >
+      <button
+        aria-expanded="false"
+        aria-selected="false"
+        class="c3 c4"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="c5 c6"
+        >
+          <span
+            class="c7"
+          >
+            About
+          </span>
+        </div>
+      </button>
+      <button
+        aria-expanded="true"
+        aria-selected="true"
+        class="c3 c8"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="c9 c6"
+        >
+          <span
+            class="c10"
+          >
+            Activity
+          </span>
+        </div>
+      </button>
+      <button
+        aria-expanded="false"
+        aria-selected="false"
+        class="c3 c4"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="c5 c6"
+        >
+          <span
+            class="c7"
+          >
+            Stickers
+          </span>
+        </div>
+      </button>
+    </div>
+    <div
+      aria-label="Activity Tab Contents"
+      class="c11"
+      role="tabpanel"
+    />
+  </div>
+</div>
+`;
+
 exports[`Tabs with icon + reverse 1`] = `
 .c1 {
   display: -webkit-box;
@@ -3421,66 +3669,62 @@ exports[`Tabs with icon + reverse 1`] = `
   }
 }
 
+@media only screen and (max-width:768px) {
+  .c6 {
+    width: 6px;
+  }
+}
+
 <div
-  className="c0"
+  class="c0"
 >
   <div
-    className="c1 "
+    class="c1 "
     role="tablist"
   >
     <div
-      className="c2 "
+      class="c2 "
     >
       <button
-        aria-expanded={true}
-        aria-selected={true}
-        className="c3"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseOut={[Function]}
-        onMouseOver={[Function]}
+        aria-expanded="true"
+        aria-selected="true"
+        class="c3"
         role="tab"
         type="button"
       >
         <div
-          className="c4 c5"
+          class="c4 c5"
         >
           <svg
             color="text"
           />
           <div
-            className="c6"
+            class="c6"
           />
           <span
-            className="c7"
+            class="c7"
           >
             Tab 1
           </span>
         </div>
       </button>
       <button
-        aria-expanded={false}
-        aria-selected={false}
-        className="c3"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseOut={[Function]}
-        onMouseOver={[Function]}
+        aria-expanded="false"
+        aria-selected="false"
+        class="c3"
         role="tab"
         type="button"
       >
         <div
-          className="c8 c5"
+          class="c8 c5"
         >
           <span
-            className="c9"
+            class="c9"
           >
             Tab 2
           </span>
           <div
-            className="c6"
+            class="c6"
           />
           <svg
             color="control"
@@ -3490,7 +3734,7 @@ exports[`Tabs with icon + reverse 1`] = `
     </div>
     <div
       aria-label="Tab 1 Tab Contents"
-      className="c10"
+      class="c10"
       role="tabpanel"
     >
       Tab body 1

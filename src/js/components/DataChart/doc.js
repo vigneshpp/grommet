@@ -2,10 +2,11 @@ import { describe, PropTypes } from 'react-desc';
 
 import {
   genericProps,
-  getAvailableAtBadge,
   padPropType,
   pointPropType,
-} from '../../utils';
+} from '../../utils/prop-types';
+
+import { getAvailableAtBadge } from '../../utils/mixins';
 
 const colorType = PropTypes.oneOfType([
   PropTypes.string,
@@ -92,7 +93,7 @@ const granularityType = PropTypes.oneOf(['coarse', 'medium', 'fine']);
 
 export const doc = DataChart => {
   const DocumentedDataChart = describe(DataChart)
-    .availableAt(getAvailableAtBadge('DataChart'))
+    .availableAt(getAvailableAtBadge('DataChart', 'Visualizations'))
     .description(
       `Takes a data set and visualizes it. While Chart renders a
     single value across a data set. DataChart allows multiple overlayed

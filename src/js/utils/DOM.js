@@ -25,6 +25,8 @@ export const findScrollParent = (element, horizontal) => {
   return result;
 };
 
+const documentTags = ['html', 'body'];
+
 export const findScrollParents = (element, horizontal) => {
   const result = [];
   if (element) {
@@ -41,14 +43,14 @@ export const findScrollParents = (element, horizontal) => {
       }
       parent = parent.parentNode;
     }
-    // last scrollable element will be the document
-    // if nothing else is scrollable in the page
-    if (result.length === 0) {
-      result.push(document);
-    } else if (result[0].tagName.toLowerCase() === 'body') {
+    if (
+      result.length &&
+      documentTags.includes(result[0].tagName.toLowerCase())
+    ) {
       result.length = 0;
-      result.push(document);
     }
+    // last scrollable element will be the document
+    result.push(document);
   }
   return result;
 };
@@ -72,17 +74,6 @@ export const getFirstFocusableDescendant = element => {
     }
   }
   return undefined;
-};
-
-export const getBodyChildElements = () => {
-  const excludeMatch = /^(script|link)$/i;
-  const children = [];
-  [].forEach.call(document.body.children, node => {
-    if (!excludeMatch.test(node.tagName)) {
-      children.push(node);
-    }
-  });
-  return children;
 };
 
 export const getNewContainer = (
@@ -113,7 +104,7 @@ const TABINDEX_STATE = 'data-g-tabindex';
 export const makeNodeFocusable = node => {
   // do not touch aria live containers so that announcements work
   if (!node.hasAttribute('aria-live')) {
-    node.setAttribute('aria-hidden', false);
+    node.removeAttribute('aria-hidden');
     // allow children to receive focus again
     const elements = node.getElementsByTagName('*');
     // only reset elements we've changed in makeNodeUnfocusable()
@@ -166,6 +157,7 @@ export const makeNodeUnfocusable = node => {
 
 export const findVisibleParent = element => {
   if (element) {
+    // Get the closest ancestor element that is positioned.
     return element.offsetParent
       ? element
       : findVisibleParent(element.parentElement) || element;
@@ -178,7 +170,7 @@ export const isNodeAfterScroll = (node, target) => {
   // target will be the document from findScrollParent()
   const { height, top } = target.getBoundingClientRect
     ? target.getBoundingClientRect()
-    : 0;
+    : { height: 0, top: 0 };
   return bottom >= top + height;
 };
 
@@ -187,6 +179,6 @@ export const isNodeBeforeScroll = (node, target) => {
   // target will be the document from findScrollParent()
   const { top: targetTop } = target.getBoundingClientRect
     ? target.getBoundingClientRect()
-    : 0;
+    : { top: 0 };
   return top <= targetTop;
 };

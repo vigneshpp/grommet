@@ -3,14 +3,14 @@ import { describe, PropTypes } from 'react-desc';
 import {
   colorPropType,
   genericProps,
-  getAvailableAtBadge,
   MARGIN_SIZES,
-  themeDocUtils,
-} from '../../utils';
+} from '../../utils/prop-types';
+import { getAvailableAtBadge } from '../../utils/mixins';
+import { themeDocUtils } from '../../utils/themeDocUtils';
 
 export const doc = Text => {
   const DocumentedText = describe(Text)
-    .availableAt(getAvailableAtBadge('Text'))
+    .availableAt(getAvailableAtBadge('Text', 'Type'))
     .description('Arbitrary text.')
     .usage(
       `import { Text } from 'grommet';
@@ -74,15 +74,15 @@ export const doc = Text => {
         'large',
         'xlarge',
         'xxlarge',
+        '2xl',
+        '3xl',
+        '4xl',
+        '5xl',
+        '6xl',
       ]),
       PropTypes.string,
     ])
-      .description(
-        `The font size and line height are primarily driven by the chosen tag. 
-But, it can be adjusted via this size property. The tag should be set for 
-semantic correctness and accessibility. This size property allows for stylistic
-adjustments.`,
-      )
+      .description(`The font size and line space height of the text.`)
       .defaultValue('medium'),
     tag: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).description(
       `The DOM tag to use for the element. NOTE: This is deprecated in favor
@@ -101,7 +101,8 @@ adjustments.`,
     truncate: PropTypes.bool
       .description(
         `Restrict the text to a single line and truncate with ellipsis if it
-is too long to all fit.`,
+is too long to all fit. For truncate to be applied, Text needs to be 
+contained within a layout component (such as Box or a generic div).`,
       )
       .defaultValue(false),
     weight: PropTypes.oneOfType([
@@ -125,9 +126,15 @@ is too long to all fit.`,
 
 export const themeDoc = {
   'global.colors.text': {
-    description: 'The text color used for Text.',
+    description: `The text color used for Text. In order for this to take 
+    effect, global.colors.background needs to be defined.`,
     type: 'object | { dark: string, light: string }',
     defaultValue: "{ dark: '#f8f8f8', light: '#444444' }",
+  },
+  'text.font.family': {
+    description: 'The font family to use for Text.',
+    type: 'string',
+    defaultValue: undefined,
   },
   text: {
     description: `The possible sizes of the text in terms of its font-size and 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import { Grommet, Box, Chart, Heading } from 'grommet';
 import { grommet } from 'grommet/themes';
@@ -10,7 +9,7 @@ const values = [
   [30, 15, 20],
 ];
 
-const Example = () => (
+export const Range = () => (
   <Grommet theme={grommet}>
     <Box direction="row-responsive" wrap pad="large">
       {['bar', 'line', 'area', 'point'].map(type => (
@@ -25,4 +24,6 @@ const Example = () => (
   </Grommet>
 );
 
-storiesOf('Chart', module).add('Range', () => <Example />);
+export default {
+  title: 'Visualizations/Chart/Range',
+};

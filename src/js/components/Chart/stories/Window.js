@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from 'react';
-import { storiesOf } from '@storybook/react';
 
 import { Grommet, Box, Chart, RangeSelector, Stack, Text } from 'grommet';
 import { grommet } from 'grommet/themes';
@@ -149,6 +148,10 @@ const WindowChart = ({ data, max }) => {
   );
 };
 
-storiesOf('Chart', module).add('Window', () => (
+export const Window = () => (
   <WindowChart data={generateData(1000, 100)} max={100} />
-));
+);
+
+export default {
+  title: 'Visualizations/Chart/Window',
+};

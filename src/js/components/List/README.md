@@ -1,7 +1,7 @@
 ## List
 An ordered list of items.
 
-[![](https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png)](https://storybook.grommet.io/?selectedKind=List&full=0&addons=0&stories=1&panelRight=0) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=/list&module=%2Fsrc%2FList.js)
+[![](https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png)](https://storybook.grommet.io/?selectedKind=Visualizations-List&full=0&stories=1&panelRight=0) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=/list&module=%2Fsrc%2FList.js)
 ## Usage
 
 ```javascript
@@ -185,6 +185,7 @@ end
     start
     end,
   size: 
+    none
     xxsmall
     xsmall
     small
@@ -266,63 +267,22 @@ function
 Item padding.
 
 ```
+none
 xxsmall
 xsmall
 small
 medium
 large
 xlarge
-string
 {
-  horizontal: 
-    xxsmall
-    xsmall
-    small
-    medium
-    large
-    xlarge,
-  vertical: 
-    xxsmall
-    xsmall
-    small
-    medium
-    large
-    xlarge,
-  top: 
-    xxsmall
-    xsmall
-    small
-    medium
-    large
-    xlarge,
   bottom: 
     xxsmall
     xsmall
     small
     medium
     large
-    xlarge,
-  left: 
-    xxsmall
-    xsmall
-    small
-    medium
-    large
-    xlarge,
-  right: 
-    xxsmall
-    xsmall
-    small
-    medium
-    large
-    xlarge,
-  start: 
-    xxsmall
-    xsmall
-    small
-    medium
-    large
-    xlarge,
+    xlarge
+    string,
   end: 
     xxsmall
     xsmall
@@ -330,7 +290,68 @@ string
     medium
     large
     xlarge
+    string,
+  horizontal: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  left: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  top: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  vertical: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string
 }
+string
+```
+
+**paginate**
+
+Whether to paginate the data. If providing an object, any Box props or 
+    Pagination props are valid and will be used to style the underlying 
+    pagination component.
+
+```
+boolean
+object
 ```
 
 **primaryKey**
@@ -355,6 +376,19 @@ When a string is supplied, it indicates the property in a data item
 ```
 string
 function
+```
+
+**show**
+
+If provided as a number, the index of an item to show. If using 
+        paginate and provided as an object in the format of show={{ page: 2 }}, 
+        the default page to show.
+
+```
+number
+{
+  page: number
+}
 ```
 
 **step**
@@ -390,6 +424,28 @@ Defaults to
 
 ```
 { dark: 'white', light: 'black' }
+```
+
+**list.container**
+
+When using paginate, any valid Box props for the container 
+    surrounding the List and Pagination components. Expects `object`.
+
+Defaults to
+
+```
+{ gap: 'small' }
+```
+
+**list.container.extend**
+
+Any additional style for the container 
+    surrounding the List and Pagination components. Expects `string | (props) => {}`.
+
+Defaults to
+
+```
+undefined
 ```
 
 **list.extend**

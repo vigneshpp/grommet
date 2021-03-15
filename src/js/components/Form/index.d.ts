@@ -10,20 +10,23 @@ export interface FormProps<T> {
   errors?: {};
   infos?: {};
   messages?: { invalid?: string; required?: string };
-  onChange?: (value: T) => void;
+  onChange?: (value: T, options: { touched?: Record<string, boolean> }) => void;
   onSubmit?: (event: FormExtendedEvent<T>) => void;
   onReset?: (event: React.SyntheticEvent) => any;
   onValidate?: (validationResults: {
     errors: Record<string, any>;
     infos: Record<string, any>;
+    valid: boolean;
   }) => void;
-  validate?: 'blur' | 'submit';
-  value?: {};
+  validate?: 'blur' | 'submit' | 'change';
+  value?: T;
 }
 
-export type TypedForm<T = unknown> = React.ComponentClass<
-  FormProps<T> & Omit<JSX.IntrinsicElements['form'], 'onChange' | 'onSubmit'>
->;
-declare const Form: TypedForm;
+type TypedFormProps<T> = FormProps<T> &
+  Omit<JSX.IntrinsicElements['form'], 'onChange' | 'onSubmit'>;
+
+declare const Form: <T = {}>(
+  p: TypedFormProps<T>,
+) => React.ReactElement<TypedFormProps<T>>;
 
 export { Form };

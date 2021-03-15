@@ -17,6 +17,26 @@ exports[`TextInput a11yTitle 1`] = `
   border-radius: 4px;
 }
 
+.c1:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c1:focus > circle,
+.c1:focus > ellipse,
+.c1:focus > line,
+.c1:focus > path,
+.c1:focus > polygon,
+.c1:focus > polyline,
+.c1:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c1:focus::-moz-focus-inner {
+  border: 0;
+}
+
 .c1::-webkit-input-placeholder {
   color: #AAAAAA;
 }
@@ -76,6 +96,26 @@ exports[`TextInput basic 1`] = `
   margin: 0;
   border: 1px solid rgba(0,0,0,0.33);
   border-radius: 4px;
+}
+
+.c1:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c1:focus > circle,
+.c1:focus > ellipse,
+.c1:focus > line,
+.c1:focus > path,
+.c1:focus > polygon,
+.c1:focus > polyline,
+.c1:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c1:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .c1::-webkit-input-placeholder {
@@ -146,6 +186,26 @@ exports[`TextInput calls onSuggestionsClose 1`] = `
   margin: 0;
   border: 1px solid rgba(0,0,0,0.33);
   border-radius: 4px;
+}
+
+.c2:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus > circle,
+.c2:focus > ellipse,
+.c2:focus > line,
+.c2:focus > path,
+.c2:focus > polygon,
+.c2:focus > polyline,
+.c2:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .c2::-webkit-input-placeholder {
@@ -248,6 +308,30 @@ exports[`TextInput calls onSuggestionsClose 2`] = `
   padding: 12px;
 }
 
+.c1 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  border-radius: 0px;
+  position: fixed;
+  z-index: 20;
+  outline: none;
+  background-color: #FFFFFF;
+  color: #444444;
+  opacity: 0;
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-animation: kPQHBD 0.1s forwards;
+  animation: kPQHBD 0.1s forwards;
+  -webkit-animation-delay: 0.01s;
+  animation-delay: 0.01s;
+}
+
 .c5 {
   display: inline-block;
   box-sizing: border-box;
@@ -272,11 +356,6 @@ exports[`TextInput calls onSuggestionsClose 2`] = `
   flex: 1 0 auto;
 }
 
-.c5:hover {
-  background-color: rgba(221,221,221,0.4);
-  color: #000000;
-}
-
 .c5:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
@@ -295,30 +374,6 @@ exports[`TextInput calls onSuggestionsClose 2`] = `
 
 .c5:focus::-moz-focus-inner {
   border: 0;
-}
-
-.c1 {
-  font-size: 18px;
-  line-height: 24px;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
-  position: fixed;
-  z-index: 20;
-  outline: none;
-  background-color: #ffffff;
-  color: #444444;
-  opacity: 0;
-  -webkit-transform-origin: top left;
-  -ms-transform-origin: top left;
-  transform-origin: top left;
-  -webkit-animation: kPQHBD 0.1s forwards;
-  animation: kPQHBD 0.1s forwards;
-  -webkit-animation-delay: 0.01s;
-  animation-delay: 0.01s;
 }
 
 .c4 {
@@ -404,14 +459,14 @@ exports[`TextInput calls onSuggestionsClose 3`] = `""`;
 
 exports[`TextInput calls onSuggestionsClose 4`] = `
 <div
-  class="StyledGrommet-sc-19lkkz7-0 lcXYAf"
+  class="StyledGrommet-sc-19lkkz7-0 djOnwZ"
 >
   <div
-    class="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 ksQrmr"
+    class="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 dpaJQp"
   >
     <input
       autocomplete="off"
-      class="StyledTextInput-sc-1x30a0s-0 jfUATO"
+      class="StyledTextInput-sc-1x30a0s-0 eZRMGn"
       data-testid="test-input"
       id="item"
       name="item"
@@ -472,6 +527,30 @@ exports[`TextInput calls onSuggestionsOpen 1`] = `
   padding: 12px;
 }
 
+.c1 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  border-radius: 0px;
+  position: fixed;
+  z-index: 20;
+  outline: none;
+  background-color: #FFFFFF;
+  color: #444444;
+  opacity: 0;
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-animation: kPQHBD 0.1s forwards;
+  animation: kPQHBD 0.1s forwards;
+  -webkit-animation-delay: 0.01s;
+  animation-delay: 0.01s;
+}
+
 .c5 {
   display: inline-block;
   box-sizing: border-box;
@@ -496,11 +575,6 @@ exports[`TextInput calls onSuggestionsOpen 1`] = `
   flex: 1 0 auto;
 }
 
-.c5:hover {
-  background-color: rgba(221,221,221,0.4);
-  color: #000000;
-}
-
 .c5:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
@@ -519,30 +593,6 @@ exports[`TextInput calls onSuggestionsOpen 1`] = `
 
 .c5:focus::-moz-focus-inner {
   border: 0;
-}
-
-.c1 {
-  font-size: 18px;
-  line-height: 24px;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
-  position: fixed;
-  z-index: 20;
-  outline: none;
-  background-color: #ffffff;
-  color: #444444;
-  opacity: 0;
-  -webkit-transform-origin: top left;
-  -ms-transform-origin: top left;
-  transform-origin: top left;
-  -webkit-animation: kPQHBD 0.1s forwards;
-  animation: kPQHBD 0.1s forwards;
-  -webkit-animation-delay: 0.01s;
-  animation-delay: 0.01s;
 }
 
 .c4 {
@@ -653,6 +703,26 @@ exports[`TextInput close suggestion drop 1`] = `
   border-radius: 4px;
 }
 
+.c2:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus > circle,
+.c2:focus > ellipse,
+.c2:focus > line,
+.c2:focus > path,
+.c2:focus > polygon,
+.c2:focus > polyline,
+.c2:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus::-moz-focus-inner {
+  border: 0;
+}
+
 .c2::-webkit-input-placeholder {
   color: #AAAAAA;
 }
@@ -753,6 +823,30 @@ exports[`TextInput close suggestion drop 2`] = `
   padding: 12px;
 }
 
+.c1 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  border-radius: 0px;
+  position: fixed;
+  z-index: 20;
+  outline: none;
+  background-color: #FFFFFF;
+  color: #444444;
+  opacity: 0;
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-animation: kPQHBD 0.1s forwards;
+  animation: kPQHBD 0.1s forwards;
+  -webkit-animation-delay: 0.01s;
+  animation-delay: 0.01s;
+}
+
 .c5 {
   display: inline-block;
   box-sizing: border-box;
@@ -777,11 +871,6 @@ exports[`TextInput close suggestion drop 2`] = `
   flex: 1 0 auto;
 }
 
-.c5:hover {
-  background-color: rgba(221,221,221,0.4);
-  color: #000000;
-}
-
 .c5:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
@@ -800,30 +889,6 @@ exports[`TextInput close suggestion drop 2`] = `
 
 .c5:focus::-moz-focus-inner {
   border: 0;
-}
-
-.c1 {
-  font-size: 18px;
-  line-height: 24px;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
-  position: fixed;
-  z-index: 20;
-  outline: none;
-  background-color: #ffffff;
-  color: #444444;
-  opacity: 0;
-  -webkit-transform-origin: top left;
-  -ms-transform-origin: top left;
-  transform-origin: top left;
-  -webkit-animation: kPQHBD 0.1s forwards;
-  animation: kPQHBD 0.1s forwards;
-  -webkit-animation-delay: 0.01s;
-  animation-delay: 0.01s;
 }
 
 .c4 {
@@ -909,14 +974,14 @@ exports[`TextInput close suggestion drop 3`] = `""`;
 
 exports[`TextInput close suggestion drop 4`] = `
 <div
-  class="StyledGrommet-sc-19lkkz7-0 lcXYAf"
+  class="StyledGrommet-sc-19lkkz7-0 djOnwZ"
 >
   <div
-    class="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 ksQrmr"
+    class="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 dpaJQp"
   >
     <input
       autocomplete="off"
-      class="StyledTextInput-sc-1x30a0s-0 jfUATO"
+      class="StyledTextInput-sc-1x30a0s-0 eZRMGn"
       data-testid="test-input"
       id="item"
       name="item"
@@ -951,6 +1016,26 @@ exports[`TextInput complex suggestions 1`] = `
   margin: 0;
   border: 1px solid rgba(0,0,0,0.33);
   border-radius: 4px;
+}
+
+.c2:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus > circle,
+.c2:focus > ellipse,
+.c2:focus > line,
+.c2:focus > path,
+.c2:focus > polygon,
+.c2:focus > polyline,
+.c2:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .c2::-webkit-input-placeholder {
@@ -1053,6 +1138,30 @@ exports[`TextInput complex suggestions 2`] = `
   padding: 12px;
 }
 
+.c1 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  border-radius: 0px;
+  position: fixed;
+  z-index: 20;
+  outline: none;
+  background-color: #FFFFFF;
+  color: #444444;
+  opacity: 0;
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-animation: kPQHBD 0.1s forwards;
+  animation: kPQHBD 0.1s forwards;
+  -webkit-animation-delay: 0.01s;
+  animation-delay: 0.01s;
+}
+
 .c5 {
   display: inline-block;
   box-sizing: border-box;
@@ -1077,11 +1186,6 @@ exports[`TextInput complex suggestions 2`] = `
   flex: 1 0 auto;
 }
 
-.c5:hover {
-  background-color: rgba(221,221,221,0.4);
-  color: #000000;
-}
-
 .c5:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
@@ -1100,30 +1204,6 @@ exports[`TextInput complex suggestions 2`] = `
 
 .c5:focus::-moz-focus-inner {
   border: 0;
-}
-
-.c1 {
-  font-size: 18px;
-  line-height: 24px;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
-  position: fixed;
-  z-index: 20;
-  outline: none;
-  background-color: #ffffff;
-  color: #444444;
-  opacity: 0;
-  -webkit-transform-origin: top left;
-  -ms-transform-origin: top left;
-  transform-origin: top left;
-  -webkit-animation: kPQHBD 0.1s forwards;
-  animation: kPQHBD 0.1s forwards;
-  -webkit-animation-delay: 0.01s;
-  animation-delay: 0.01s;
 }
 
 .c4 {
@@ -1226,6 +1306,26 @@ exports[`TextInput disabled 1`] = `
   cursor: default;
 }
 
+.c1:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c1:focus > circle,
+.c1:focus > ellipse,
+.c1:focus > line,
+.c1:focus > path,
+.c1:focus > polygon,
+.c1:focus > polyline,
+.c1:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c1:focus::-moz-focus-inner {
+  border: 0;
+}
+
 .c1::-webkit-input-placeholder {
   color: #AAAAAA;
 }
@@ -1297,6 +1397,26 @@ exports[`TextInput handles next and previous without suggestion 1`] = `
   border-radius: 4px;
 }
 
+.c2:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus > circle,
+.c2:focus > ellipse,
+.c2:focus > line,
+.c2:focus > path,
+.c2:focus > polygon,
+.c2:focus > polyline,
+.c2:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus::-moz-focus-inner {
+  border: 0;
+}
+
 .c2::-webkit-input-placeholder {
   color: #AAAAAA;
 }
@@ -1348,14 +1468,14 @@ exports[`TextInput handles next and previous without suggestion 1`] = `
 
 exports[`TextInput handles next and previous without suggestion 2`] = `
 <div
-  class="StyledGrommet-sc-19lkkz7-0 lcXYAf"
+  class="StyledGrommet-sc-19lkkz7-0 djOnwZ"
 >
   <div
-    class="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 ksQrmr"
+    class="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 dpaJQp"
   >
     <input
       autocomplete="off"
-      class="StyledTextInput-sc-1x30a0s-0 hsswYj"
+      class="StyledTextInput-sc-1x30a0s-0 eZRMGn"
       data-testid="test-input"
       id="item"
       name="item"
@@ -1415,6 +1535,26 @@ exports[`TextInput icon 1`] = `
   border: 1px solid rgba(0,0,0,0.33);
   border-radius: 4px;
   padding-left: 48px;
+}
+
+.c3:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c3:focus > circle,
+.c3:focus > ellipse,
+.c3:focus > line,
+.c3:focus > path,
+.c3:focus > polygon,
+.c3:focus > polyline,
+.c3:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c3:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .c3::-webkit-input-placeholder {
@@ -1546,6 +1686,26 @@ exports[`TextInput icon reverse 1`] = `
   padding-right: 48px;
 }
 
+.c3:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c3:focus > circle,
+.c3:focus > ellipse,
+.c3:focus > line,
+.c3:focus > path,
+.c3:focus > polygon,
+.c3:focus > polyline,
+.c3:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c3:focus::-moz-focus-inner {
+  border: 0;
+}
+
 .c3::-webkit-input-placeholder {
   color: #AAAAAA;
 }
@@ -1674,6 +1834,30 @@ exports[`TextInput large drop height 1`] = `
   padding: 12px;
 }
 
+.c1 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  border-radius: 0px;
+  position: fixed;
+  z-index: 20;
+  outline: none;
+  background-color: #FFFFFF;
+  color: #444444;
+  opacity: 0;
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-animation: kPQHBD 0.1s forwards;
+  animation: kPQHBD 0.1s forwards;
+  -webkit-animation-delay: 0.01s;
+  animation-delay: 0.01s;
+}
+
 .c5 {
   display: inline-block;
   box-sizing: border-box;
@@ -1698,11 +1882,6 @@ exports[`TextInput large drop height 1`] = `
   flex: 1 0 auto;
 }
 
-.c5:hover {
-  background-color: rgba(221,221,221,0.4);
-  color: #000000;
-}
-
 .c5:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
@@ -1721,30 +1900,6 @@ exports[`TextInput large drop height 1`] = `
 
 .c5:focus::-moz-focus-inner {
   border: 0;
-}
-
-.c1 {
-  font-size: 18px;
-  line-height: 24px;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
-  position: fixed;
-  z-index: 20;
-  outline: none;
-  background-color: #ffffff;
-  color: #444444;
-  opacity: 0;
-  -webkit-transform-origin: top left;
-  -ms-transform-origin: top left;
-  transform-origin: top left;
-  -webkit-animation: kPQHBD 0.1s forwards;
-  animation: kPQHBD 0.1s forwards;
-  -webkit-animation-delay: 0.01s;
-  animation-delay: 0.01s;
 }
 
 .c4 {
@@ -1879,6 +2034,30 @@ exports[`TextInput medium drop height 1`] = `
   padding: 12px;
 }
 
+.c1 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  border-radius: 0px;
+  position: fixed;
+  z-index: 20;
+  outline: none;
+  background-color: #FFFFFF;
+  color: #444444;
+  opacity: 0;
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-animation: kPQHBD 0.1s forwards;
+  animation: kPQHBD 0.1s forwards;
+  -webkit-animation-delay: 0.01s;
+  animation-delay: 0.01s;
+}
+
 .c5 {
   display: inline-block;
   box-sizing: border-box;
@@ -1903,11 +2082,6 @@ exports[`TextInput medium drop height 1`] = `
   flex: 1 0 auto;
 }
 
-.c5:hover {
-  background-color: rgba(221,221,221,0.4);
-  color: #000000;
-}
-
 .c5:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
@@ -1926,30 +2100,6 @@ exports[`TextInput medium drop height 1`] = `
 
 .c5:focus::-moz-focus-inner {
   border: 0;
-}
-
-.c1 {
-  font-size: 18px;
-  line-height: 24px;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
-  position: fixed;
-  z-index: 20;
-  outline: none;
-  background-color: #ffffff;
-  color: #444444;
-  opacity: 0;
-  -webkit-transform-origin: top left;
-  -ms-transform-origin: top left;
-  transform-origin: top left;
-  -webkit-animation: kPQHBD 0.1s forwards;
-  animation: kPQHBD 0.1s forwards;
-  -webkit-animation-delay: 0.01s;
-  animation-delay: 0.01s;
 }
 
 .c4 {
@@ -2033,7 +2183,7 @@ exports[`TextInput medium drop height 1`] = `
 
 exports[`TextInput medium drop height 2`] = `""`;
 
-exports[`TextInput select a suggestion 1`] = `
+exports[`TextInput select a suggestion with onSelect 1`] = `
 .c0 {
   font-size: 18px;
   line-height: 24px;
@@ -2058,6 +2208,122 @@ exports[`TextInput select a suggestion 1`] = `
   margin: 0;
   border: 1px solid rgba(0,0,0,0.33);
   border-radius: 4px;
+}
+
+.c2:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus > circle,
+.c2:focus > ellipse,
+.c2:focus > line,
+.c2:focus > path,
+.c2:focus > polygon,
+.c2:focus > polyline,
+.c2:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c2::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c2::-moz-placeholder {
+  color: #AAAAAA;
+}
+
+.c2:-ms-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c2::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.c2::-moz-focus-inner {
+  border: none;
+  outline: none;
+}
+
+.c2:-moz-placeholder,
+.c2::-moz-placeholder {
+  opacity: 1;
+}
+
+.c1 {
+  position: relative;
+  width: 100%;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <input
+      autocomplete="off"
+      class="c2"
+      data-testid="test-input"
+      id="item"
+      name="item"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`TextInput select a suggestion with onSuggestionSelect 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c2 {
+  box-sizing: border-box;
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  -webkit-appearance: none;
+  background: transparent;
+  color: inherit;
+  width: 100%;
+  padding: 11px;
+  font-weight: 600;
+  margin: 0;
+  border: 1px solid rgba(0,0,0,0.33);
+  border-radius: 4px;
+}
+
+.c2:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus > circle,
+.c2:focus > ellipse,
+.c2:focus > line,
+.c2:focus > path,
+.c2:focus > polygon,
+.c2:focus > polyline,
+.c2:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .c2::-webkit-input-placeholder {
@@ -2138,6 +2404,26 @@ exports[`TextInput select suggestion 1`] = `
   border-radius: 4px;
   outline: none;
   border: none;
+}
+
+.c2:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus > circle,
+.c2:focus > ellipse,
+.c2:focus > line,
+.c2:focus > path,
+.c2:focus > polygon,
+.c2:focus > polyline,
+.c2:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .c2::-webkit-input-placeholder {
@@ -2240,6 +2526,30 @@ exports[`TextInput select suggestion 2`] = `
   padding: 12px;
 }
 
+.c1 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  border-radius: 0px;
+  position: fixed;
+  z-index: 20;
+  outline: none;
+  background-color: #FFFFFF;
+  color: #444444;
+  opacity: 0;
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-animation: kPQHBD 0.1s forwards;
+  animation: kPQHBD 0.1s forwards;
+  -webkit-animation-delay: 0.01s;
+  animation-delay: 0.01s;
+}
+
 .c5 {
   display: inline-block;
   box-sizing: border-box;
@@ -2264,11 +2574,6 @@ exports[`TextInput select suggestion 2`] = `
   flex: 1 0 auto;
 }
 
-.c5:hover {
-  background-color: rgba(221,221,221,0.4);
-  color: #000000;
-}
-
 .c5:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
@@ -2287,30 +2592,6 @@ exports[`TextInput select suggestion 2`] = `
 
 .c5:focus::-moz-focus-inner {
   border: 0;
-}
-
-.c1 {
-  font-size: 18px;
-  line-height: 24px;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
-  position: fixed;
-  z-index: 20;
-  outline: none;
-  background-color: #ffffff;
-  color: #444444;
-  opacity: 0;
-  -webkit-transform-origin: top left;
-  -ms-transform-origin: top left;
-  transform-origin: top left;
-  -webkit-animation: kPQHBD 0.1s forwards;
-  animation: kPQHBD 0.1s forwards;
-  -webkit-animation-delay: 0.01s;
-  animation-delay: 0.01s;
 }
 
 .c4 {
@@ -2396,18 +2677,307 @@ exports[`TextInput select suggestion 3`] = `""`;
 
 exports[`TextInput select suggestion 4`] = `
 <div
-  class="StyledGrommet-sc-19lkkz7-0 lcXYAf"
+  class="StyledGrommet-sc-19lkkz7-0 djOnwZ"
 >
   <div
-    class="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 ksQrmr"
+    class="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 dpaJQp"
   >
     <input
       autocomplete="off"
-      class="StyledTextInput-sc-1x30a0s-0 deAfJe"
+      class="StyledTextInput-sc-1x30a0s-0 fcSdEK"
       data-testid="test-input"
       id="item"
       name="item"
       value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`TextInput select with onSuggestionSelect when onSelect is present 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c2 {
+  box-sizing: border-box;
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  -webkit-appearance: none;
+  background: transparent;
+  color: inherit;
+  width: 100%;
+  padding: 11px;
+  font-weight: 600;
+  margin: 0;
+  border: 1px solid rgba(0,0,0,0.33);
+  border-radius: 4px;
+}
+
+.c2:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus > circle,
+.c2:focus > ellipse,
+.c2:focus > line,
+.c2:focus > path,
+.c2:focus > polygon,
+.c2:focus > polyline,
+.c2:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c2::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c2::-moz-placeholder {
+  color: #AAAAAA;
+}
+
+.c2:-ms-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c2::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.c2::-moz-focus-inner {
+  border: none;
+  outline: none;
+}
+
+.c2:-moz-placeholder,
+.c2::-moz-placeholder {
+  opacity: 1;
+}
+
+.c1 {
+  position: relative;
+  width: 100%;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <input
+      autocomplete="off"
+      class="c2"
+      data-testid="test-input"
+      id="item"
+      name="item"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`TextInput should have padding when plain 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c2 {
+  box-sizing: border-box;
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  -webkit-appearance: none;
+  background: transparent;
+  color: inherit;
+  width: 100%;
+  padding: 11px;
+  font-weight: 600;
+  margin: 0;
+  border: 1px solid rgba(0,0,0,0.33);
+  border-radius: 4px;
+  outline: none;
+  border: none;
+}
+
+.c2:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus > circle,
+.c2:focus > ellipse,
+.c2:focus > line,
+.c2:focus > path,
+.c2:focus > polygon,
+.c2:focus > polyline,
+.c2:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c2::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c2::-moz-placeholder {
+  color: #AAAAAA;
+}
+
+.c2:-ms-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c2::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.c2::-moz-focus-inner {
+  border: none;
+  outline: none;
+}
+
+.c2:-moz-placeholder,
+.c2::-moz-placeholder {
+  opacity: 1;
+}
+
+.c1 {
+  position: relative;
+  width: 100%;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <input
+      autocomplete="off"
+      class="c2"
+      name="name"
+      placeholder="should still have padding"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`TextInput should hide non-string placeholder when having a value 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c2 {
+  box-sizing: border-box;
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  -webkit-appearance: none;
+  background: transparent;
+  color: inherit;
+  width: 100%;
+  padding: 11px;
+  font-weight: 600;
+  margin: 0;
+  border: 1px solid rgba(0,0,0,0.33);
+  border-radius: 4px;
+}
+
+.c2:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus > circle,
+.c2:focus > ellipse,
+.c2:focus > line,
+.c2:focus > path,
+.c2:focus > polygon,
+.c2:focus > polyline,
+.c2:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c2::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c2::-moz-placeholder {
+  color: #AAAAAA;
+}
+
+.c2:-ms-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c2::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.c2::-moz-focus-inner {
+  border: none;
+  outline: none;
+}
+
+.c2:-moz-placeholder,
+.c2::-moz-placeholder {
+  opacity: 1;
+}
+
+.c1 {
+  position: relative;
+  width: 100%;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <input
+      autocomplete="off"
+      class="c2"
+      data-testid="styled-placeholder"
+      id="styled-placeholder"
+      name="styled-placeholder"
+      value="test"
     />
   </div>
 </div>
@@ -2438,6 +3008,26 @@ exports[`TextInput should not have accessibility violations 1`] = `
   margin: 0;
   border: 1px solid rgba(0,0,0,0.33);
   border-radius: 4px;
+}
+
+.c2:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus > circle,
+.c2:focus > ellipse,
+.c2:focus > line,
+.c2:focus > path,
+.c2:focus > polygon,
+.c2:focus > polyline,
+.c2:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .c2::-webkit-input-placeholder {
@@ -2482,6 +3072,351 @@ exports[`TextInput should not have accessibility violations 1`] = `
       autocomplete="off"
       class="c2"
       name="item"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`TextInput should not have padding when plain="full" 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c2 {
+  box-sizing: border-box;
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  -webkit-appearance: none;
+  background: transparent;
+  color: inherit;
+  width: 100%;
+  padding: 11px;
+  font-weight: 600;
+  margin: 0;
+  border: 1px solid rgba(0,0,0,0.33);
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  padding: 0;
+}
+
+.c2:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus > circle,
+.c2:focus > ellipse,
+.c2:focus > line,
+.c2:focus > path,
+.c2:focus > polygon,
+.c2:focus > polyline,
+.c2:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c2::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c2::-moz-placeholder {
+  color: #AAAAAA;
+}
+
+.c2:-ms-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c2::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.c2::-moz-focus-inner {
+  border: none;
+  outline: none;
+}
+
+.c2:-moz-placeholder,
+.c2::-moz-placeholder {
+  opacity: 1;
+}
+
+.c1 {
+  position: relative;
+  width: 100%;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <input
+      autocomplete="off"
+      class="c2"
+      name="name"
+      placeholder="should not have padding"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`TextInput should only show default placeholder when placeholder is a
+  string 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c2 {
+  box-sizing: border-box;
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  -webkit-appearance: none;
+  background: transparent;
+  color: inherit;
+  width: 100%;
+  padding: 11px;
+  font-weight: 600;
+  margin: 0;
+  border: 1px solid rgba(0,0,0,0.33);
+  border-radius: 4px;
+}
+
+.c2:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus > circle,
+.c2:focus > ellipse,
+.c2:focus > line,
+.c2:focus > path,
+.c2:focus > polygon,
+.c2:focus > polyline,
+.c2:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c2::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c2::-moz-placeholder {
+  color: #AAAAAA;
+}
+
+.c2:-ms-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c2::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.c2::-moz-focus-inner {
+  border: none;
+  outline: none;
+}
+
+.c2:-moz-placeholder,
+.c2::-moz-placeholder {
+  opacity: 1;
+}
+
+.c1 {
+  position: relative;
+  width: 100%;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <input
+      autocomplete="off"
+      class="c2"
+      data-testid="placeholder"
+      id="placeholder"
+      name="placeholder"
+      placeholder="placeholder text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`TextInput should only show default placeholder when placeholder is a
+  string 2`] = `
+<div
+  class="StyledGrommet-sc-19lkkz7-0 djOnwZ"
+>
+  <div
+    class="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 dpaJQp"
+  >
+    <input
+      autocomplete="off"
+      class="StyledTextInput-sc-1x30a0s-0 eZRMGn"
+      data-testid="placeholder"
+      id="placeholder"
+      name="placeholder"
+      placeholder="placeholder text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`TextInput should show non-string placeholder 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c4 {
+  box-sizing: border-box;
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  -webkit-appearance: none;
+  background: transparent;
+  color: inherit;
+  width: 100%;
+  padding: 11px;
+  font-weight: 600;
+  margin: 0;
+  border: 1px solid rgba(0,0,0,0.33);
+  border-radius: 4px;
+}
+
+.c4:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c4:focus > circle,
+.c4:focus > ellipse,
+.c4:focus > line,
+.c4:focus > path,
+.c4:focus > polygon,
+.c4:focus > polyline,
+.c4:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c4:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c4::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c4::-moz-placeholder {
+  color: #AAAAAA;
+}
+
+.c4:-ms-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c4::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.c4::-moz-focus-inner {
+  border: none;
+  outline: none;
+}
+
+.c4:-moz-placeholder,
+.c4::-moz-placeholder {
+  opacity: 1;
+}
+
+.c1 {
+  position: relative;
+  width: 100%;
+}
+
+.c2 {
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.c3 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <span
+        class="c3"
+      >
+        placeholder text
+      </span>
+    </div>
+    <input
+      autocomplete="off"
+      class="c4"
+      data-testid="test-styled-placeholder"
+      id="styled-placeholder"
+      name="styled-placeholder"
       value=""
     />
   </div>
@@ -2539,6 +3474,30 @@ exports[`TextInput small drop height 1`] = `
   padding: 12px;
 }
 
+.c1 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  border-radius: 0px;
+  position: fixed;
+  z-index: 20;
+  outline: none;
+  background-color: #FFFFFF;
+  color: #444444;
+  opacity: 0;
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-animation: kPQHBD 0.1s forwards;
+  animation: kPQHBD 0.1s forwards;
+  -webkit-animation-delay: 0.01s;
+  animation-delay: 0.01s;
+}
+
 .c5 {
   display: inline-block;
   box-sizing: border-box;
@@ -2563,11 +3522,6 @@ exports[`TextInput small drop height 1`] = `
   flex: 1 0 auto;
 }
 
-.c5:hover {
-  background-color: rgba(221,221,221,0.4);
-  color: #000000;
-}
-
 .c5:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
@@ -2586,30 +3540,6 @@ exports[`TextInput small drop height 1`] = `
 
 .c5:focus::-moz-focus-inner {
   border: 0;
-}
-
-.c1 {
-  font-size: 18px;
-  line-height: 24px;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
-  position: fixed;
-  z-index: 20;
-  outline: none;
-  background-color: #ffffff;
-  color: #444444;
-  opacity: 0;
-  -webkit-transform-origin: top left;
-  -ms-transform-origin: top left;
-  transform-origin: top left;
-  -webkit-animation: kPQHBD 0.1s forwards;
-  animation: kPQHBD 0.1s forwards;
-  -webkit-animation-delay: 0.01s;
-  animation-delay: 0.01s;
 }
 
 .c4 {
@@ -2710,6 +3640,26 @@ exports[`TextInput suggestions 1`] = `
   border-radius: 4px;
 }
 
+.c1:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c1:focus > circle,
+.c1:focus > ellipse,
+.c1:focus > line,
+.c1:focus > path,
+.c1:focus > polygon,
+.c1:focus > polyline,
+.c1:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c1:focus::-moz-focus-inner {
+  border: 0;
+}
+
 .c1::-webkit-input-placeholder {
   color: #AAAAAA;
 }
@@ -2806,6 +3756,30 @@ exports[`TextInput suggestions 2`] = `
   padding: 12px;
 }
 
+.c1 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  border-radius: 0px;
+  position: fixed;
+  z-index: 20;
+  outline: none;
+  background-color: #FFFFFF;
+  color: #444444;
+  opacity: 0;
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-animation: kPQHBD 0.1s forwards;
+  animation: kPQHBD 0.1s forwards;
+  -webkit-animation-delay: 0.01s;
+  animation-delay: 0.01s;
+}
+
 .c5 {
   display: inline-block;
   box-sizing: border-box;
@@ -2830,11 +3804,6 @@ exports[`TextInput suggestions 2`] = `
   flex: 1 0 auto;
 }
 
-.c5:hover {
-  background-color: rgba(221,221,221,0.4);
-  color: #000000;
-}
-
 .c5:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
@@ -2853,30 +3822,6 @@ exports[`TextInput suggestions 2`] = `
 
 .c5:focus::-moz-focus-inner {
   border: 0;
-}
-
-.c1 {
-  font-size: 18px;
-  line-height: 24px;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
-  position: fixed;
-  z-index: 20;
-  outline: none;
-  background-color: #ffffff;
-  color: #444444;
-  opacity: 0;
-  -webkit-transform-origin: top left;
-  -ms-transform-origin: top left;
-  transform-origin: top left;
-  -webkit-animation: kPQHBD 0.1s forwards;
-  animation: kPQHBD 0.1s forwards;
-  -webkit-animation-delay: 0.01s;
-  animation-delay: 0.01s;
 }
 
 .c4 {
@@ -2959,3 +3904,97 @@ exports[`TextInput suggestions 2`] = `
 `;
 
 exports[`TextInput suggestions 3`] = `""`;
+
+exports[`TextInput textAlign end 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c2 {
+  box-sizing: border-box;
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  -webkit-appearance: none;
+  background: transparent;
+  color: inherit;
+  width: 100%;
+  padding: 11px;
+  font-weight: 600;
+  margin: 0;
+  border: 1px solid rgba(0,0,0,0.33);
+  border-radius: 4px;
+  text-align: right;
+}
+
+.c2:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus > circle,
+.c2:focus > ellipse,
+.c2:focus > line,
+.c2:focus > path,
+.c2:focus > polygon,
+.c2:focus > polyline,
+.c2:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c2::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c2::-moz-placeholder {
+  color: #AAAAAA;
+}
+
+.c2:-ms-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c2::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.c2::-moz-focus-inner {
+  border: none;
+  outline: none;
+}
+
+.c2:-moz-placeholder,
+.c2::-moz-placeholder {
+  opacity: 1;
+}
+
+.c1 {
+  position: relative;
+  width: 100%;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <input
+      autocomplete="off"
+      class="c2"
+      value="1234"
+    />
+  </div>
+</div>
+`;

@@ -1,10 +1,10 @@
 import { describe, PropTypes } from 'react-desc';
 
-import { getAvailableAtBadge } from '../../utils';
+import { getAvailableAtBadge } from '../../utils/mixins';
 
 export const doc = SkipLinks => {
   const DocumentedSkipLinks = describe(SkipLinks)
-    .availableAt(getAvailableAtBadge('SkipLinks'))
+    .availableAt(getAvailableAtBadge('SkipLinks', 'Utilities'))
     .description('Describe a list of elements to skip to.')
     .usage(
       `import { SkipLinks } from 'grommet';

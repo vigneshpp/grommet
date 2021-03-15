@@ -1,8 +1,17 @@
 import { describe, PropTypes } from 'react-desc';
 
-import { genericProps, getAvailableAtBadge } from '../../utils';
+import { genericProps, padPropType } from '../../utils/prop-types';
+import { getAvailableAtBadge } from '../../utils/mixins';
 
-const sizes = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
+const sizes = [
+  'none',
+  'xxsmall',
+  'xsmall',
+  'small',
+  'medium',
+  'large',
+  'xlarge',
+];
 const sides = [
   'horizontal',
   'vertical',
@@ -37,7 +46,7 @@ const borderTypes = [
 
 export const doc = List => {
   const DocumentedList = describe(List)
-    .availableAt(getAvailableAtBadge('List'))
+    .availableAt(getAvailableAtBadge('List', 'Visualizations'))
     .description('An ordered list of items.')
     .usage(
       `import { List } from 'grommet';
@@ -99,11 +108,15 @@ export const doc = List => {
       Anchor or Button inside 'primaryKey' or 'secondaryKey' as that can
       cause confusion with overlapping interactive elements.`,
     ),
-    pad: PropTypes.oneOfType([
-      PropTypes.oneOf(sizes),
-      PropTypes.string,
-      PropTypes.shape(padShapeSides),
-    ]).description(`Item padding.`),
+    pad: PropTypes.oneOfType([padPropType]).description(`Item padding.`),
+    paginate: PropTypes.oneOfType([PropTypes.bool, PropTypes.object])
+      .description(
+        `Whether to paginate the data. If providing an object, any Box props or 
+    Pagination props are valid and will be used to style the underlying 
+    pagination component.`,
+      )
+      .defaultValue(undefined),
+
     primaryKey: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.func,
@@ -122,6 +135,16 @@ export const doc = List => {
       will be called with the current data item object and should return
       a React element that will be rendered as the secondary content.`,
     ),
+    show: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.shape({ page: PropTypes.number }),
+    ])
+      .description(
+        `If provided as a number, the index of an item to show. If using 
+        paginate and provided as an object in the format of show={{ page: 2 }}, 
+        the default page to show.`,
+      )
+      .defaultValue(undefined),
     step: PropTypes.number
       .description('How many items to render at a time.')
       .defaultValue(50),
@@ -140,6 +163,18 @@ export const themeDoc = {
     description: 'The text color when hovering over an interactive item.',
     type: 'string | { dark: string, light: string }',
     defaultValue: "{ dark: 'white', light: 'black' }",
+  },
+  'list.container': {
+    description: `When using paginate, any valid Box props for the container 
+    surrounding the List and Pagination components.`,
+    type: 'object',
+    defaultValue: "{ gap: 'small' }",
+  },
+  'list.container.extend': {
+    description: `Any additional style for the container 
+    surrounding the List and Pagination components.`,
+    type: 'string | (props) => {}',
+    defaultValue: undefined,
   },
   'list.extend': {
     description: 'Any additional style for the list.',

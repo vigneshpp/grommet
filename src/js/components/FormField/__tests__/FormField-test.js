@@ -7,6 +7,7 @@ import 'regenerator-runtime/runtime';
 
 import { axe } from 'jest-axe';
 import { cleanup, render } from '@testing-library/react';
+import { Alert, New, StatusInfo } from 'grommet-icons';
 import { Grommet } from '../../Grommet';
 import { Form } from '../../Form';
 import { FormField } from '..';
@@ -41,6 +42,7 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('label', () => {
@@ -51,6 +53,7 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('help', () => {
@@ -61,6 +64,7 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('error', () => {
@@ -71,6 +75,7 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('info', () => {
@@ -81,6 +86,7 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('htmlFor', () => {
@@ -91,6 +97,7 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('margin', () => {
@@ -101,6 +108,7 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('empty margin', () => {
@@ -111,6 +119,7 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('pad', () => {
@@ -121,6 +130,7 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('abut', () => {
@@ -149,6 +159,7 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('abut with margin', () => {
@@ -177,6 +188,7 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('custom formfield', () => {
@@ -187,6 +199,7 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('disabled', () => {
@@ -200,6 +213,7 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('required', () => {
@@ -213,6 +227,7 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('custom label', () => {
@@ -236,6 +251,7 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('disabled with custom label', () => {
@@ -264,6 +280,7 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('pad with border undefined', () => {
@@ -285,6 +302,7 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('custom input margin', () => {
@@ -305,6 +323,7 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
   });
 
   test('contentProps', () => {
@@ -322,5 +341,86 @@ describe('FormField', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    component.unmount();
+  });
+
+  test('custom error and info icon and container', () => {
+    const component = renderer.create(
+      <Grommet
+        theme={{
+          formField: {
+            error: {
+              icon: <Alert />,
+              container: {
+                background: {
+                  color: 'green',
+                },
+              },
+            },
+            info: {
+              icon: <StatusInfo />,
+              container: {
+                pad: { horizontal: 'large' },
+              },
+            },
+          },
+        }}
+      >
+        <Form>
+          <FormField
+            label="label"
+            error="This is an error message."
+            info="Here is a little added info on FormField."
+            contentProps={{
+              border: false,
+            }}
+          />
+        </Form>
+      </Grommet>,
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+    component.unmount();
+  });
+
+  test('should render asterisk when requiredIndicator === true', () => {
+    const { container } = render(
+      <Grommet
+        theme={{
+          formField: {
+            label: {
+              requiredIndicator: true,
+            },
+          },
+        }}
+      >
+        <Form>
+          <FormField label="label" required />
+        </Form>
+      </Grommet>,
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  test(`should render custom indicator when requiredIndicator is 
+  element`, () => {
+    const { container } = render(
+      <Grommet
+        theme={{
+          formField: {
+            label: {
+              requiredIndicator: <New size="small" />,
+            },
+          },
+        }}
+      >
+        <Form>
+          <FormField label="label" required />
+        </Form>
+      </Grommet>,
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

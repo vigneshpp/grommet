@@ -1,10 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { storiesOf } from '@storybook/react';
 
 import { FormClose } from 'grommet-icons';
-
 import { Box, Button, CheckBox, Grommet, Select, Text } from 'grommet';
-
+// https://github.com/grommet/grommet/blob/master/src/js/components/Select/stories/theme.js
 import { theme as customSearchTheme } from './theme';
 
 const allContentPartners = [
@@ -58,11 +56,11 @@ const allContentPartners = [
   },
 ];
 
-const CustomSearchSelect = () => {
+export const CustomSearch = () => {
   const [selectedContentPartners, setSelectedContentPartners] = useState([]);
   const [contentPartners, setContentPartners] = useState(allContentPartners);
   const [searching, setSearching] = useState(false);
-  const [searchQuery, setSerchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const selectRef = useRef();
 
@@ -112,7 +110,9 @@ const CustomSearchSelect = () => {
       </Box>
       <Box flex>
         <Text size="small" truncate>
-          {selectedContentPartners.map(({ name }) => name).join(', ')}
+          {selectedContentPartners.length > 1
+            ? 'multiple'
+            : selectedContentPartners.map(({ name }) => name)}
         </Text>
       </Box>
       <Button
@@ -132,22 +132,20 @@ const CustomSearchSelect = () => {
     </Box>
   );
 
-  const sortContentPartners = selectedPartnerNames => {
-    return (p1, p2) => {
-      const p1Exists = selectedPartnerNames.includes(p1.name);
-      const p2Exists = selectedPartnerNames.includes(p2.name);
+  const sortContentPartners = selectedPartnerNames => (p1, p2) => {
+    const p1Exists = selectedPartnerNames.includes(p1.name);
+    const p2Exists = selectedPartnerNames.includes(p2.name);
 
-      if (!p1Exists && p2Exists) {
-        return 1;
-      }
-      if (p1Exists && !p2Exists) {
-        return -1;
-      }
-      if (p1.name.toLowerCase() < p2.name.toLowerCase()) {
-        return -1;
-      }
+    if (!p1Exists && p2Exists) {
       return 1;
-    };
+    }
+    if (p1Exists && !p2Exists) {
+      return -1;
+    }
+    if (p1.name.toLowerCase() < p2.name.toLowerCase()) {
+      return -1;
+    }
+    return 1;
   };
 
   return (
@@ -189,7 +187,7 @@ const CustomSearchSelect = () => {
           }}
           onSearch={query => {
             setSearching(true);
-            setSerchQuery(query);
+            setSearchQuery(query);
           }}
         >
           {renderOption}
@@ -199,4 +197,8 @@ const CustomSearchSelect = () => {
   );
 };
 
-storiesOf('Select', module).add('Custom Search', () => <CustomSearchSelect />);
+CustomSearch.storyName = 'Custom search';
+
+export default {
+  title: 'Input/Select/Custom search',
+};

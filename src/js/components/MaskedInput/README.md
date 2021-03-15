@@ -1,7 +1,7 @@
 ## MaskedInput
 An input field with formalized syntax.
 
-[![](https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png)](https://storybook.grommet.io/?selectedKind=MaskedInput&full=0&addons=0&stories=1&panelRight=0) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=/maskedinput&module=%2Fsrc%2FMaskedInput.js)
+[![](https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png)](https://storybook.grommet.io/?selectedKind=Input-MaskedInput&full=0&stories=1&panelRight=0) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=/maskedinput&module=%2Fsrc%2FMaskedInput.js)
 ## Usage
 
 ```javascript
@@ -17,6 +17,27 @@ Custom title to be used by screen readers.
 
 ```
 string
+```
+
+**dropHeight**
+
+The height of the drop container.
+
+```
+xsmall
+small
+medium
+large
+xlarge
+string
+```
+
+**dropProps**
+
+Any valid Drop prop.
+
+```
+object
 ```
 
 **icon**
@@ -53,6 +74,14 @@ Function that will be called when the user types or pastes text.
 function
 ```
 
+**focusIndicator**
+
+Whether the plain MaskedInput should receive a focus outline.
+
+```
+boolean
+```
+
 **onBlur**
 
 Function that will be called when the user leaves the field.
@@ -65,7 +94,8 @@ function
 
 Describes the structure of the mask. If a regexp is provided, it should
       allow both the final full string element as well as partial strings
-      as the user types characters one by one.
+      as the user types characters one by one. When using regexp to match number
+      values make sure that the option values are numbers as well.
 
 ```
 [{
@@ -145,6 +175,17 @@ Defaults to
 **maskedInput.extend**
 
 Any additional style for MaskedInput. Expects `string | (props) => {}`.
+
+Defaults to
+
+```
+undefined
+```
+
+**maskedInput.container.extend**
+
+Any additional style for the container surrounding the input
+    and, if present, icon. Expects `string | (props) => {}`.
 
 Defaults to
 
@@ -293,4 +334,14 @@ Defaults to
 
 ```
 12px
+```
+
+**global.input.extend**
+
+Any additional style for an input. Expects `string | (props) => {}`.
+
+Defaults to
+
+```
+undefined
 ```

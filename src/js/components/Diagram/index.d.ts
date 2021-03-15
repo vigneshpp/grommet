@@ -1,25 +1,34 @@
-import * as React from "react";
+import * as React from 'react';
 
-import { 
-  ColorType 
-} from "../../utils";
+import { ColorType } from '../../utils';
 
-export type DiagramConnectionAnchor = "center" | "vertical" | "horizontal";
-export type DiagramConnectionType = "direct" | "curved" | "rectilinear";
+export type DiagramConnectionAnchor = 'center' | 'vertical' | 'horizontal';
+export type DiagramConnectionType = 'direct' | 'curved' | 'rectilinear';
 
 export interface DiagramProps {
   connections: {
-    anchor?: DiagramConnectionAnchor, 
-    color?: ColorType,
-    fromTarget: string | object,
-    label?: string,
-    offset?: "xsmall" | "small" | "medium" | "large" | string,
-    thickness?: "hair" | "xxsmall" | "xsmall" | "small" | "medium" | "large" | string,
-    toTarget: string | object,
-    type?: DiagramConnectionType
+    anchor?: DiagramConnectionAnchor;
+    color?: ColorType;
+    fromTarget: string | object;
+    label?: string;
+    offset?: 'xsmall' | 'small' | 'medium' | 'large' | string;
+    thickness?:
+      | 'hair'
+      | 'xxsmall'
+      | 'xsmall'
+      | 'small'
+      | 'medium'
+      | 'large'
+      | string;
+    toTarget: string | object;
+    type?: DiagramConnectionType;
   }[];
 }
 
-declare const Diagram: React.FC<DiagramProps & JSX.IntrinsicElements['svg']>;
+type divProps = JSX.IntrinsicElements['svg'];
+
+export interface DiagramExtendedProps extends DiagramProps, divProps {}
+
+declare const Diagram: React.FC<DiagramExtendedProps>;
 
 export { Diagram };
